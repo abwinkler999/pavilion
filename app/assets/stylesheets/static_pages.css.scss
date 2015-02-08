@@ -3,13 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .main_banner{
-	background-color:springgreen;
+	background-color:red;
+	color:white;
 }
 
 .login_row{
-	background-color:slategrey;
+	background-color:blue;
 	text-align:right;
 	font-variant:small-caps;
+	color:white;
 }
 .main_banner_text{
 	text-align:center;
@@ -17,4 +19,18 @@
 
 .big_text{
 	text-align:center;
+}
+
+.notice, .alert{
+	text-align:center;
+	background-color:pink
+}
+
+#please_sign_in{
+	margin-left:40px;
+	margin-top:100px;
+}
+
+.login_signup{
+	padding-right:30px;
 }
