@@ -12,7 +12,13 @@ Slot.find_or_create_by(name: "1:00-2:00 PM")
 Slot.find_or_create_by(name: "2:30-3:30 PM")
 Slot.find_or_create_by(name: "4:00-5:00 PM")
 
+Level.find_or_create_by(name: "Pathfinder")
+Level.find_or_create_by(name: "Tenderheart")
+Level.find_or_create_by(name: "Explorer")
+Level.find_or_create_by(name: "Pioneer")
+Level.find_or_create_by(name: "Patriot")
+
 Restriction.find_or_create_by(name: "All")
 Restriction.find_or_create_by(name: "Pioneer Only")
 
-Session.find_or_create_by(name: "Archery", description: "Shooting arrows at things", slot: Slot.first, restriction: Restriction.find_by(name:"All"))
+Session.find_or_create_by(name: "Archery", description: "Learning ths sport of archery.", slot: Slot.first, restriction: Restriction.find_by(name:"Pioneer Only"))
