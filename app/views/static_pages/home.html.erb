@@ -37,7 +37,7 @@
 		<% if current_user.girls.any? %>
 			<h2><%=	"#{current_user.girls.first.first_name} #{current_user.girls.first.last_name}" %></h2>
 			<h3><%= "DOB: #{current_user.girls.first.dob.to_s}" %></h3>
-			<h3><%= "Level: #{current_user.girls.first.level.name}" %></h3>
+			<h3 id="levelblock"><%= "Level: #{current_user.girls.first.level.name}" %></h3>
 			<h3><%= "Dietary restrictions: #{current_user.girls.first.dietary}" %></h3>
 			<h3><%= "Gluten allergy?"%>
 			<% if current_user.girls.first.no_gluten %>
