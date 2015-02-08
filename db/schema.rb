@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208054454) do
+ActiveRecord::Schema.define(version: 20150208061400) do
 
   create_table "girls", force: true do |t|
     t.string   "first_name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150208054454) do
     t.boolean  "no_gluten"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "girls_sessions", id: false, force: true do |t|
@@ -69,6 +70,13 @@ ActiveRecord::Schema.define(version: 20150208054454) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "troop_number"
+    t.boolean  "cpr"
+    t.boolean  "first_aid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
