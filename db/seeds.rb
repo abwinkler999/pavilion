@@ -21,7 +21,6 @@ Level.find_or_create_by(name: "Patriot")
 Restriction.find_or_create_by(name: "All")
 Restriction.find_or_create_by(name: "Pioneer Only")
 
-Girl.find_or_create_by(first_name: "Dorothea", last_name: "Winkler", dob: "2006-01-01", level_id: 2)
 Session.find_or_create_by(name: "Archery", description: "Learning ths sport of archery.", slot: Slot.find_by(name:"9:00-10:00 AM"), restriction: Restriction.find_by(name:"Pioneer Only"))
 Session.find_or_create_by(name: "Pottery", description: "Introduction to pot-throwing.", slot: Slot.find_by(name:"9:00-10:00 AM"), restriction: Restriction.find_by(name:"All"))
 Session.find_or_create_by(name: "Fire Building", description: "Learning to build a campfire.", slot: Slot.find_by(name:"9:00-10:00 AM"), restriction: Restriction.find_by(name:"All"))
