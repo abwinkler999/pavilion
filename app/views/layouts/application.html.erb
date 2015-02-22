@@ -7,13 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= render "static_pages/headbanner" %>
+
 <div class="row" id="flash_row">
-<% if notice %>
-       <p class="notice"><%= notice %></p>
-<% end %>
-<% if alert %>
-       <p class="alert"><%= alert %></p>
-<% end %>
+	<% if notice %>
+	       <p class="notice"><%= notice %></p>
+	<% end %>
+	<% if alert %>
+	       <p class="alert"><%= alert %></p>
+	<% end %>
  </div>
 
 <%= yield %>

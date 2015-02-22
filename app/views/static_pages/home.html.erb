@@ -1,39 +1,10 @@
-<%= render "headbanner" %>
 <% if user_signed_in? %>
 <div class="row">
 	<div class="col-md-5">
-	<div class="parentblock">
-		<h2><%=	"#{current_user.first_name} #{current_user.last_name}" %></h2>
-		<h3><%= "Troop: #{current_user.troop_number}" %></h3>
-		<h3><%= "Phone: #{current_user.phone}" %></h3>
-		<h3><%= "CPR trained?  #{current_user.cpr? ? "Y" : ""}" %>
-		<h3><%= "First aid trained?  #{current_user.cpr? ? "Y" : ""}" %>
-	</div>
+		<%= render "parentblock" %>
 	</div>
 	<div class="col-md-4">
-		<div class="girlblock">
-		<% if current_user.girls.any? %>
-			<h2><%=	"#{current_user.girls.first.first_name} #{current_user.girls.first.last_name}" %></h2>
-			<h3><%= "DOB: #{current_user.girls.first.dob.to_s}" %></h3>
-			<h3 id="levelblock"><%= "Level: #{current_user.girls.first.level.name}" %></h3>
-			<h3><%= "Dietary restrictions: #{current_user.girls.first.dietary}" %></h3>
-			<h3><%= "Gluten allergy?   #{current_user.girls.first.no_gluten? ? "Y" : ""}"%>
-			<h3>Schedule:</h3>
-			<div class="form-group">
-				<% Slot.all.each { |x| %>
-		 			<label for="sel1"><%= x.name %></label>
-		  			<select class="form-control" id="sel1">
-		  			<% Session.all.each { |y| %>
-		  				<% if y.slot.id == x.id %>
-			   				<option><%= y.name %></option>
-			   			<% end %>
-			   		<% } %>
-		  			</select>
-	  			<% } %>
-			</div>
-
-		<% end %>
-		</div>
+		<%= render 'girlsblock' %>
 	</div>
 </div>
 <% else %>
