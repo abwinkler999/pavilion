@@ -1,0 +1,24 @@
+<div class="row main_banner">
+	<div class="col-md-10">
+		<h1 class="main_banner_text">American Heritage Girls</h1>
+	</div>
+	<div class="col-md-2">
+		<h4 class="marengo">Camp Marengo 2015</h4>
+	</div>
+</div>
+<div class="row login_row">
+	<div class="col-md-10">
+		<h2 class="main_banner_text">Residence Camp 2015 Registration Application</h2>
+	</div>
+
+	<div class="col-md-2">
+		<div class="login_signup">
+			<% if user_signed_in? %>
+			<h4><%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn btn-default" %> </h4>
+			<% else %>
+				<%= link_to "Login", new_user_session_path, class: "btn btn-default login-buttons" %>
+				<%= link_to "Sign Up!", new_user_registration_path, class: "btn btn-default login-buttons" %>
+			<% end %>
+		</div>
+	</div>
+</div>

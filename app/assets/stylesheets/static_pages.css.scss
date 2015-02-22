@@ -9,18 +9,24 @@
 
 .login_row{
 	background-color:blue;
-	text-align:right;
-	font-variant:small-caps;
+	#text-align:center;
+	#font-variant:small-caps;
 	color:white;
 }
 .main_banner_text{
 	text-align:center;
 }
 
-.big_text{
-	text-align:center;
+.marengo{
+	border-style:solid;
+	border-color:blue;
+	border-width:6px;
+	margin-top:15px;
+	width:95%;
+	background-color:white;
+	color:red;
+	#padding:1px;
 }
-
 .notice, .alert{
 	text-align:center;
 	background-color:pink
@@ -33,6 +39,11 @@
 
 .login_signup{
 	padding-right:30px;
+}
+
+.login-buttons{
+	margin-top:15px;
+	margin-left:5px;
 }
 
 h3{
