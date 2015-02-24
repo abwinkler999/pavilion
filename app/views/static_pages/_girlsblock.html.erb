@@ -11,19 +11,22 @@
 <% current_user.girls.each { |x| %>
 <tr>
 	<td>
-	<h4><%= "#{x.first_name} #{x.last_name}" %></h4>
+		<h4><%= "#{x.first_name} #{x.last_name}" %></h4>
 	</td>
 	<td>
-	<h4><%= "#{x.level.name}" %></h4>
+		<h4><%= "#{x.level.name}" %></h4>
 	</td>
 	<td>
-	<h4><%= "#{x.dietary}" %></h4>
+		<h4><%= "#{x.dietary}" %></h4>
 	</td>
 	<td>
-	<h4><%= "#{x.no_gluten ? "Yes" : "No"}" %></h4>
+		<h4><%= "#{x.no_gluten ? "Yes" : "No"}" %></h4>
 	</td>
 	<td>
 		<h4><%= "#{x.medications ? "Yes" : "No"}" %></h4>
+	</td>
+	<td>
+		<h4><%= link_to "Edit Registration", edit_girl_path(x), class: "btn btn-success" %></h4>
 	</td>
 </tr>
 <% } %>
