@@ -1,7 +1,14 @@
 <div class="parentblock">
 	<h2><%=	"#{current_user.first_name} #{current_user.last_name}" %></h2>
+	<% unless current_user.attending %>
+	<h2>Not attending camp</h2>
+	<% else %> 
 	<h4><%= "Troop: #{current_user.troop_number}" %></h4>
 	<h4><%= "Phone: #{current_user.phone}" %></h4>
 	<h4><%= "CPR trained?  #{current_user.cpr? ? "Y" : ""}" %></h4>
 	<h4><%= "First aid trained?  #{current_user.cpr? ? "Y" : ""}" %></h4>
+	<% end %>
+</div>
+<div>
+	<%= link_to "Edit My Account", edit_user_registration_path, class: "btn btn-warning" %>
 </div>

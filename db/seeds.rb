@@ -34,3 +34,13 @@ Session.find_or_create_by(name: "Archery", description: "Pool time.", slot: Slot
 Session.find_or_create_by(name: "Outdoor Cooking", description: "Pool time.", slot: Slot.find_by(name:"2:30-3:30 PM"), restriction: Restriction.find_by(name:"All"))
 Session.find_or_create_by(name: "Afternoon Hike", description: "Pool time.", slot: Slot.find_by(name:"4:00-5:00 PM"), restriction: Restriction.find_by(name:"All"))
 Session.find_or_create_by(name: "Birdwatching", description: "Pool time.", slot: Slot.find_by(name:"4:00-5:00 PM"), restriction: Restriction.find_by(name:"All"))
+
+Tshirt.find_or_create_by(name: "YS")
+Tshirt.find_or_create_by(name: "YM")
+Tshirt.find_or_create_by(name: "YL")
+Tshirt.find_or_create_by(name: "AS")
+Tshirt.find_or_create_by(name: "AM")
+Tshirt.find_or_create_by(name: "AL")
+Tshirt.find_or_create_by(name: "AXL")
+Tshirt.find_or_create_by(name: "A2XL")
+Tshirt.find_or_create_by(name: "A3XL")
