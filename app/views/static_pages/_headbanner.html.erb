@@ -14,6 +14,9 @@
 	<div class="col-md-2">
 		<div class="login_signup">
 			<% if user_signed_in? %>
+				<% if current_user.is_admin %>
+					<h4><%= link_to "Admin", admin_path, class: "btn btn-default" %> </h4>
+				<% end %>
 			<h4><%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn btn-default" %> </h4>
 			<% else %>
 				<%= link_to "Login", new_user_session_path, class: "btn btn-default login-buttons" %>
