@@ -4,26 +4,46 @@
 <tr>
 	<th>Girl</th>
 	<th>Rank</th>
+	<th>DOB</th>
+	<th>Grade This Fall</th>
+	<th>Parent's Cell</th>
+	<th>Other Cell</th>
 	<th>Dietary Restrictions</th>
 	<th>Gluten Restriction</th>
 	<th>Medications</th>
+	<th>T-Shirt Size</th>
 </tr>
 <% current_user.girls.each { |x| %>
 <tr>
 	<td>
-		<h4><%= "#{x.first_name} #{x.last_name}" %></h4>
+		<%= "#{x.first_name} #{x.last_name}" %>
 	</td>
 	<td>
-		<h4><%= "#{x.level.name}" %></h4>
+		<%= "#{x.level.name}" %>
 	</td>
 	<td>
-		<h4><%= "#{x.dietary}" %></h4>
+		<%= "#{x.dob}" %>
 	</td>
 	<td>
-		<h4><%= "#{x.no_gluten ? "Yes" : "No"}" %></h4>
+		<%= "#{x.fallgrade}" %>
 	</td>
 	<td>
-		<h4><%= "#{x.medications ? "Yes" : "No"}" %></h4>
+		<%= "#{x.parentcell}" %>
+	</td>
+	<td>
+		<%= "#{x.othercell}" %>
+	</td>
+	<td>
+		<%= "#{x.dietary}" %>
+	</td>
+	<td>
+		<%= "#{x.no_gluten ? "Yes" : "No"}" %>
+	</td>
+	<td>
+		<%= "#{x.medications ? "Yes" : "No"}" %>
+	</td>
+	<td>
+		<%= "#{x.tshirt.nil? ? '?' : x.tshirt.name}"%>
 	</td>
 	<td>
 		<h4><%= link_to "Edit Registration", edit_girl_path(x), class: "btn btn-success" %></h4>
