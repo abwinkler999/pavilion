@@ -1,5 +1,5 @@
 <div class="adultform">
-	<h3>Register an Adult</h3>
+	<h3>Edit Adult Registration</h3>
 	<% if @adult.errors.any? %>
 	<h3>Errors:</h3>
 	<ul>
@@ -30,7 +30,7 @@
 				<%= g.label "T-Shirt Size" %>
 				<%= select_tag(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name)) %>
 				<p>
-					<%= g.submit "Register Adult Attendee", class: "btn btn_default btn_success" %>
+					<%= g.submit "Edit Adult Registration", class: "btn btn_default btn_success" %>
 				</p>
 			<% end %>
 				<%= link_to "Cancel", :root, class: "btn btn_primary" %>

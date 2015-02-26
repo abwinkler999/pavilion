@@ -13,6 +13,7 @@
 		<h4><%= "CPR trained?  #{the_adult.cpr? ? "Y" : "N"}" %></h4>
 		<h4><%= "First aid trained?  #{the_adult.cpr? ? "Y" : "N"}" %></h4>
 		<%= "T-shirt Size: #{the_adult.tshirt.nil? ? '?' : the_adult.tshirt.name}" %>
+		<%= link_to "Edit Adult Registration", edit_adult_path(the_adult), class: "btn btn-primary" %>
 		<h4><%= link_to "Cancel Adult Registration", adult_path(the_adult), method: :delete, data: { confirm: "Are you certain you want to cancel your registration?" }, class: "btn btn-danger" %></h4>
 	<% end %>
 </div>

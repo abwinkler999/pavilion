@@ -35,12 +35,13 @@
 				<%= select_tag(:level_id, options_from_collection_for_select(Level.all, :id, :name)) %>
 				<%= g.label "T-Shirt Size" %>
 				<%= select_tag(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name)) %>
+									<%= g.submit "Register Girl", class: "btn btn_default btn_success" %>
 
 		</div>
 		<div class="col-md-4">
 			<h2>SESSIONS SIGNUP</h2>
 				<p>
-					<%= g.submit "Register Girl", class: "btn btn_default btn_success" %>
+
 				</p>
 				<%= link_to "Cancel", :root, class: "btn btn_primary" %>
 			<% end %>
