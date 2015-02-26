@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :girls
-  belongs_to :tshirt
+  has_one :adult
 
-  validates_presence_of :first_name, :last_name, :address, :phone, :troop_number
 end

@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225061800) do
+ActiveRecord::Schema.define(version: 20150226205508) do
+
+  create_table "adults", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "troop_number"
+    t.boolean  "cpr"
+    t.boolean  "first_aid"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "halfweek",     default: false
+    t.integer  "tshirt_id"
+  end
 
   create_table "girls", force: true do |t|
     t.string   "first_name"
@@ -82,17 +97,9 @@ ActiveRecord::Schema.define(version: 20150225061800) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "address"
-    t.string   "phone"
-    t.string   "troop_number"
-    t.boolean  "cpr"
-    t.boolean  "first_aid"
     t.boolean  "is_admin",               default: false
     t.boolean  "attending",              default: false
-    t.boolean  "halfweek",               default: false
-    t.integer  "tshirt_id"
+    t.integer  "adult_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
