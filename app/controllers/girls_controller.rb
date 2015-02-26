@@ -19,6 +19,18 @@ class GirlsController < ApplicationController
 		@girl = Girl.find(params[:id])
 	end
 
+	def update
+		@girl = Girl.new(girl_params)
+		@girl.user = current_user
+		@girl.level = Level.find_by(id:params[:level_id])
+		@girl.tshirt = Tshirt.find_by(id:params[:tshirt_id])
+	    if @girl.save
+	      redirect_to :root
+	    else
+	      render 'new'
+		end
+	end
+
 	def destroy
 		@girl = Girl.find(params[:id])
 		@girl.destroy
