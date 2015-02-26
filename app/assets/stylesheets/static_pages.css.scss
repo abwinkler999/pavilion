@@ -18,6 +18,7 @@
 }
 .main_banner_text{
 	text-align:center;
+	font-size:170%;
 }
 
 .marengo{
@@ -46,8 +47,12 @@
 }
 
 .login-buttons{
-	margin-top:15px;
-	margin-left:5px;
+	margin-top:10px;
+	margin-left:2px;
+}
+
+.rightshift-button{
+	margin-left:40px;
 }
 
 h3{
@@ -58,6 +63,10 @@ h3{
 	margin-top:20px;
 }
 
+#girls_list_block{
+	padding-left:25px;
+}
+
 .girlblock{
 	background-color:pink;
 	padding-left:15px;
@@ -65,7 +74,10 @@ h3{
 }
 
 .parentblock{
-	padding-left:45px;
+	padding-left:25px;
+	padding-bottom:10px;
+	border-bottom-style:solid;
+	border-width:2px;
 }
 
 #levelblock{

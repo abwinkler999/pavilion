@@ -1,38 +1,41 @@
-<% if @girl.errors.any? %>
-<h3>Errors:</h3>
-<ul>
-<% @girl.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
-<% end %>
-</ul>
-<% end %>
-<%= form_for @girl do |g| %>
-	<%= g.label :first_name %>:
-	<%= g.text_field :first_name %>
-	<%= g.label :last_name %>:
-	<%= g.text_field :last_name %><br>
-	<%= g.label "Troop Number" %><br />
-	<%= g.text_field :troopnumber %><br>
-	<%= g.label "Date of Birth (MM-DD-YYYY)" %><br />
-	<%= g.date_field :dob %><br>
-	<%= g.label "What school grade will girl be in fall?" %><br />
-	<%= g.text_field :fallgrade %><br>
-	<%= g.label "Please list any dietary restrictions:" %><br />
-	<%= g.text_field :dietary %><br>
-	<%= g.label "Gluten sensitivity?" %><br>
-	<%= g.check_box :no_gluten %><br>
-	<%= g.label "Will girl be checking in medications with nurse on arrival?" %><br>
-	<%= g.check_box :medications %><br>
-	<%= g.label "Parent's Phone Number" %><br />
-	<%= g.text_field :parentcell %><br>
-	<%= g.label "Alternate Phone Number" %><br />
-	<%= g.text_field :othercell %><br>
-	<%= g.label "Level" %>
-	<%= select_tag(:level_id, options_from_collection_for_select(Level.all, :id, :name)) %>
-	<%= g.label "T-Shirt Size" %>
-	<%= select_tag(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name)) %>
-<p>
-	<%= g.submit "Edit Registration", class: "btn btn_default btn_success" %>
-</p>
-	<%= link_to "Cancel", :root, class: "btn btn_default" %>
-<% end %>
+<div class="girlform">
+	<h3>Edit Registration</h3>
+	<% if @girl.errors.any? %>
+	<h3>Errors:</h3>
+	<ul>
+	<% @girl.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+	<% end %>
+	</ul>
+	<% end %>
+	<%= form_for @girl do |g| %>
+		<%= g.label :first_name %>:
+		<%= g.text_field :first_name %>
+		<%= g.label :last_name %>:
+		<%= g.text_field :last_name %><br>
+		<%= g.label "Troop Number" %><br />
+		<%= g.text_field :troopnumber %><br>
+		<%= g.label "Date of Birth (MM-DD-YYYY)" %><br />
+		<%= g.date_field :dob %><br>
+		<%= g.label "What school grade will girl be in fall?" %><br />
+		<%= g.text_field :fallgrade %><br>
+		<%= g.label "Please list any dietary restrictions:" %><br />
+		<%= g.text_field :dietary %><br>
+		<%= g.label "Gluten sensitivity?" %><br>
+		<%= g.check_box :no_gluten %><br>
+		<%= g.label "Will girl be checking in medications with nurse on arrival?" %><br>
+		<%= g.check_box :medications %><br>
+		<%= g.label "Parent's Phone Number" %><br />
+		<%= g.text_field :parentcell %><br>
+		<%= g.label "Alternate Phone Number" %><br />
+		<%= g.text_field :othercell %><br>
+		<%= g.label "Level" %>
+		<%= select_tag(:level_id, options_from_collection_for_select(Level.all, :id, :name)) %>
+		<%= g.label "T-Shirt Size" %>
+		<%= select_tag(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name)) %>
+	<p>
+		<%= g.submit "Edit Registration", class: "btn btn_default btn_success" %>
+	</p>
+		<%= link_to "Cancel", :root, class: "btn" %>
+	<% end %>
+</div>

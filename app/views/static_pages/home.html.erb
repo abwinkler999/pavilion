@@ -1,18 +1,18 @@
 <% if user_signed_in? %>
 <div class="row mainblock">
 	<div class="row">
-		<div class="col-md-11 col-md-offset-1">
+		<div class="col-md-12">
 		<%= render "parentblock" %>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-11 col-md-offset-1">
-			<%= render 'girlsblock' %>
+		<div class="col-md-12">
+			<%= render "girlsblock" %>
 		</div>
 	</div>
 </div>
 <% else %>
 <div id="please_sign_in">
-	<h3><span class="glyphicon glyphicon-hand-right"></span>   Please create an account to sign up for Residence Camp and to select your daughter's sessions.</h3>
+	<h3>Please create an account to sign up for Residence Camp and to select your daughter's sessions.</h3>
 </div>
 <% end %>

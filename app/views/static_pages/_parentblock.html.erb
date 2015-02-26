@@ -4,13 +4,11 @@
 	<%= "Phone: #{current_user.phone}" %><br />
 	<%= "Mailing address: #{current_user.address}" %><br />
 	<% unless current_user.attending %>
-	<h3>Not attending camp</h3>
+		<h3>Not attending camp</h3>
 	<% else %> 
-	<h3>Attending Marengo 2015</h3>
-	<h4><%= "CPR trained?  #{current_user.cpr? ? "Y" : ""}" %></h4>
-	<h4><%= "First aid trained?  #{current_user.cpr? ? "Y" : ""}" %></h4>
+		<h3>Attending Marengo 2015</h3>
+		<h4><%= "CPR trained?  #{current_user.cpr? ? "Y" : ""}" %></h4>
+		<h4><%= "First aid trained?  #{current_user.cpr? ? "Y" : ""}" %></h4>
 	<% end %>
-</div>
-<div>
-	<%= link_to "Edit My Account", edit_user_registration_path, class: "btn btn-warning" %>
+	<%= link_to "Edit My Registration", edit_user_registration_path, class: "btn btn-warning rightshift-button" %>
 </div>
