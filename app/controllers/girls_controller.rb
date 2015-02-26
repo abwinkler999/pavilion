@@ -5,7 +5,13 @@ class GirlsController < ApplicationController
 
 	def create
 		@girl = Girl.new(girl_params)
+		@girl.user = current_user
+		@girl.level = Level.find_by(id:params[:level_id])
+		binding.pry
 	    if @girl.save
+	    	#binding.pry
+	    	#raise params.inspect
+
 	      redirect_to :root
 	    else
 	      render 'new'
@@ -14,5 +20,17 @@ class GirlsController < ApplicationController
 
 	def edit
 		@girl = Girl.find(params[:id])
+	end
+
+	def destroy
+		@girl = Girl.find(params[:id])
+		@girl.destroy
+		redirect_to :root
+	end
+
+	private
+
+	def girl_params
+		params.require(:girl).permit(:first_name, :last_name, :level_id)
 	end
 end

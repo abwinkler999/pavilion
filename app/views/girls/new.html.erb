@@ -1,1 +1,10 @@
-new.html.erb
+<%= form_for @girl do |g| %>
+	<%= g.label :first_name %>:
+	<%= g.text_field :first_name %>
+	<%= g.label :last_name %>:
+	<%= g.text_field :last_name %><br>
+	<%= g.label :level %><br />
+	<%= select_tag(:level_id, options_from_collection_for_select(Level.all, :id, :name)) %>
+
+	<%= g.submit %>
+<% end %>
