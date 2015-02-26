@@ -28,6 +28,6 @@ class GirlsController < ApplicationController
 	private
 
 	def girl_params
-		params.require(:girl).permit(:first_name, :last_name, :level_id, :dob, :fallgrade, :troopnumber, :tshirt_id)
+		params.require(:girl).permit(:first_name, :last_name, :level_id, :dob, :fallgrade, :troopnumber, :tshirt_id, :dietary, :parentcell, :othercell)
 	end
 end
