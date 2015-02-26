@@ -7,11 +7,8 @@ class GirlsController < ApplicationController
 		@girl = Girl.new(girl_params)
 		@girl.user = current_user
 		@girl.level = Level.find_by(id:params[:level_id])
-		binding.pry
+		@girl.tshirt = Tshirt.find_by(id:params[:tshirt_id])
 	    if @girl.save
-	    	#binding.pry
-	    	#raise params.inspect
-
 	      redirect_to :root
 	    else
 	      render 'new'
@@ -31,6 +28,6 @@ class GirlsController < ApplicationController
 	private
 
 	def girl_params
-		params.require(:girl).permit(:first_name, :last_name, :level_id)
+		params.require(:girl).permit(:first_name, :last_name, :level_id, :dob, :fallgrade, :troopnumber, :tshirt_id)
 	end
 end

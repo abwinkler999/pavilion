@@ -3,8 +3,14 @@
 	<%= g.text_field :first_name %>
 	<%= g.label :last_name %>:
 	<%= g.text_field :last_name %><br>
-	<%= g.label :level %><br />
+	<%= g.label :troopnumber %><br />
+	<%= g.text_field :troopnumber %><br>
+	<%= g.label "Date of Birth" %><br />
+	<%= g.text_field :dob %><br>
+	<%= g.label "What school grade will girl be in fall?" %><br />
+	<%= g.text_field :fallgrade %><br>
 	<%= select_tag(:level_id, options_from_collection_for_select(Level.all, :id, :name)) %>
+	<%= select_tag(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name)) %>
 
 	<%= g.submit %>
 <% end %>
