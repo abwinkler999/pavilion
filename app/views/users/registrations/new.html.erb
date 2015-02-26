@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
 		<div class="login_block">
-			<h2>Register for Marengo 2015</h2>
+			<h2>Register to Use Site</h2>
 
 			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 			  <%= devise_error_messages! %>
@@ -15,34 +15,7 @@
 			  <div><%= f.label :password_confirmation %><br />
 			    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-			  <div><%= f.label :first_name %><br />
-			  <%= f.text_field :first_name, autofocus: true %></div>
-
-			  <div><%= f.label :last_name %><br />
-			  <%= f.text_field :last_name, autofocus: true %></div>
-
-			  <div><%= f.label :address %><br />
-			  <%= f.text_field :email, autofocus: true %></div>
-
-			  <div><%= f.label :phone %><br />
-			  <%= f.text_field :phone, autofocus: true %></div>
-
-			  <div><%= f.label :troop_number %><br />
-			  <%= f.text_field :troop_number%></div>
-
-			  <div><%= f.label "Are you attending Marengo 2015?" %><br />
-			  <%= f.check_box :attending %></div>
-<div id="attendees" class="well">
-			  <div><%= f.label "Will you be staying only half the week?" %><br />
-			  <%= f.check_box :halfweek %></div>
-
-			  <div><%= f.label "Do you have a current CPR certification?" %><br />
-			  <%= f.check_box :cpr %></div>
-
-			  <div><%= f.label "Do you have a current first aid certification?" %><br />
-			  <%= f.check_box :first_aid %></div>
-</div>
-			  <div><%= f.submit "Sign up!", class: "btn btn-success signup_button" %></div>
+			  <div><%= f.submit "Register to Use Site", class: "btn btn-success signup_button" %></div>
 			<% end %>
 		</div>
 	</div>

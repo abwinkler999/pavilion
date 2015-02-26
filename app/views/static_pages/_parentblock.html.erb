@@ -1,13 +1,18 @@
 <div class="parentblock">
-	<h3><%=	"#{current_user.first_name} #{current_user.last_name}" %></h3>
-	<%= "Troop: #{current_user.troop_number}" %><br />
-	<%= "Phone: #{current_user.phone}" %><br />
-	<%= "Mailing address: #{current_user.address}" %><br />
-	<% unless current_user.attending %>
-		<h3>Not attending camp</h3>
+	<% unless current_user.adult %>
+		<h3>(Adult is not attending Marengo 2015)</h3>
+		<%= link_to "Register Adult to Attend", new_adult_path, class: "btn btn-success" %>
 	<% else %> 
-		<h3>Attending Marengo 2015</h3>
-		<h4><%= "CPR trained?  #{current_user.cpr? ? "Y" : ""}" %></h4>
-		<h4><%= "First aid trained?  #{current_user.cpr? ? "Y" : ""}" %></h4>
+		<% the_adult = current_user.adult %>
+		<h3>You are Attending Marengo 2015!</h3>
+		<h3><%=	"#{the_adult.first_name} #{the_adult.last_name}" %></h3>
+		<%= "Troop: #{the_adult.troopnumber}" %><br />
+		<%= "Phone: #{the_adult.phone}" %><br />
+		<%= "Mailing address: #{the_adult.address}" %><br />
+		<h4><%= "Staying half the week?  #{the_adult.halfweek? ? "Y" : "N"}" %></h4>
+		<h4><%= "CPR trained?  #{the_adult.cpr? ? "Y" : "N"}" %></h4>
+		<h4><%= "First aid trained?  #{the_adult.cpr? ? "Y" : "N"}" %></h4>
+		<%= "T-shirt Size: #{the_adult.tshirt.nil? ? '?' : the_adult.tshirt.name}" %>
+		<h4><%= link_to "Cancel Adult Registration", adult_path(the_adult), method: :delete, data: { confirm: "Are you certain you want to cancel your registration?" }, class: "btn btn-danger" %></h4>
 	<% end %>
 </div>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   #get 'static_pages/admin'
 
   resources :girls
+  resources :adults
 
 
   # The priority is based upon order of creation: first created -> highest priority.

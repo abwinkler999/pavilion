@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226205508) do
+ActiveRecord::Schema.define(version: 20150226212124) do
 
   create_table "adults", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "address"
     t.string   "phone"
-    t.string   "troop_number"
     t.boolean  "cpr"
     t.boolean  "first_aid"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "halfweek",     default: false
+    t.boolean  "halfweek",    default: false
     t.integer  "tshirt_id"
+    t.string   "troopnumber"
   end
 
   create_table "girls", force: true do |t|
