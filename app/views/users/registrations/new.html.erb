@@ -7,7 +7,7 @@
 			  <%= devise_error_messages! %>
 
 			  <div><%= f.label :email %><br />
-			  <%= f.email_field :email, autofocus: true %></div>
+			  <%= f.email_field :email%></div>
 
 			  <div><%= f.label :password %> <% if @validatable %><i>(must be at least <%= @minimum_password_length %> characters)</i><% end %><br />
 			    <%= f.password_field :password, autocomplete: "off" %></div>
@@ -28,7 +28,7 @@
 			  <%= f.text_field :phone, autofocus: true %></div>
 
 			  <div><%= f.label :troop_number %><br />
-			  <%= f.text_field :troop_number, autofocus: true %></div>
+			  <%= f.text_field :troop_number%></div>
 
 			  <div><%= f.label "Are you attending Marengo 2015?" %><br />
 			  <%= f.check_box :attending %></div>
