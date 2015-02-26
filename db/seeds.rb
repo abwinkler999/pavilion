@@ -12,7 +12,6 @@ Slot.find_or_create_by(name: "1:00-2:00 PM")
 Slot.find_or_create_by(name: "2:30-3:30 PM")
 Slot.find_or_create_by(name: "4:00-5:00 PM")
 
-Level.find_or_create_by(name: "Pathfinder")
 Level.find_or_create_by(name: "Tenderheart")
 Level.find_or_create_by(name: "Explorer")
 Level.find_or_create_by(name: "Pioneer")

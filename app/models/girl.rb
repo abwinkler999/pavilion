@@ -5,4 +5,5 @@ class Girl < ActiveRecord::Base
 	belongs_to :tshirt
 
 	validates_presence_of :first_name, :last_name, :level_id, :dob, :fallgrade, :troopnumber, :tshirt_id
+	validates_numericality_of :fallgrade
 end
