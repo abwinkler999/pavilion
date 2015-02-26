@@ -1,10 +1,12 @@
 <div class="parentblock">
-	<h2><%=	"#{current_user.first_name} #{current_user.last_name}" %></h2>
+	<h3><%=	"#{current_user.first_name} #{current_user.last_name}" %></h3>
+	<%= "Troop: #{current_user.troop_number}" %><br />
+	<%= "Phone: #{current_user.phone}" %><br />
+	<%= "Mailing address: #{current_user.address}" %><br />
 	<% unless current_user.attending %>
-	<h2>Not attending camp</h2>
+	<h3>Not attending camp</h3>
 	<% else %> 
-	<h4><%= "Troop: #{current_user.troop_number}" %></h4>
-	<h4><%= "Phone: #{current_user.phone}" %></h4>
+	<h3>Attending Marengo 2015</h3>
 	<h4><%= "CPR trained?  #{current_user.cpr? ? "Y" : ""}" %></h4>
 	<h4><%= "First aid trained?  #{current_user.cpr? ? "Y" : ""}" %></h4>
 	<% end %>
