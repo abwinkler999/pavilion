@@ -1,3 +1,11 @@
+<% if @girl.errors.any? %>
+<h3>Errors:</h3>
+<ul>
+<% @girl.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>
 <%= form_for @girl do |g| %>
 	<%= g.label :first_name %>:
 	<%= g.text_field :first_name %>
