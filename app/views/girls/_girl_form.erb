@@ -2,7 +2,10 @@
 
 $('document').ready(function(){
 
-	$("#session-choosing").hide();
+	i = $("#girl_level_id option:selected").text();
+	if (i == "Tenderheart"){
+		$("#session-choosing").hide();
+	}
 
 	$("#girl_level_id").change(function(){
 		i = $("#girl_level_id option:selected").text();
