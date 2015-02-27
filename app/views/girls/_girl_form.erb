@@ -1,3 +1,23 @@
+<script type="text/javascript">
+
+$('document').ready(function(){
+
+	$("#session-choosing").hide();
+
+	$("#girl_level_id").change(function(){
+		i = $("#girl_level_id option:selected").text();
+		if (i != "Tenderheart"){
+			$("#tenderheart_disclaimer").hide();
+			$("#session-choosing").slideDown();
+		}
+		else{
+			$("#tenderheart_disclaimer").show();
+			$("#session-choosing").slideUp();
+		}
+	});
+});
+
+</script>
 <div class="row">
 	<div class="col-md-7 col-md-offset-1">
 		<%= form_for @girl do |g| %>
@@ -27,11 +47,11 @@
 			<%= g.select(:level_id, options_from_collection_for_select(Level.all, :id, :name, @girl.level_id)) %>
 			<%= g.label :tshirt_id, "T-Shirt Size" %>
 			<%= g.select(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name, @girl.tshirt_id)) %>
-			</p><br />
+			</p>
+			<p class="disclaimer" id="tenderheart_disclaimer">
+					All Tenderhearts will follow a pre-set camp schedule.
+			</p>
 			<div id="session-choosing">
-				<p class="disclaimer">
-					All Tenderhearts will follow a pre-set schedule.  Choosing sessions is for Explorers, Pioneers, and Patriots only.
-				</p>
 				<p>
 					<%= g.label :session_A_id, "Session A (Morning):" %>
 					<%= select_tag(:session_A_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"A")), :id, :name, @girl.session_A_id)) %><br/>
@@ -52,8 +72,8 @@
 
 				<%= g.label "Is this scout participating in the High Ropes course (Pi/Pa only)?", class:"text-capitalize" %>
 				<%= g.check_box :high_ropes %><br>
+				<p class="disclaimer">An additional $15 registration fee will apply for the High Ropes course.</p>
 			</div>
-			<p class="disclaimer">An additional $15 registration fee will apply for the High Ropes course.</p>
 			<p>
 				<%= g.submit "Save Registration", class: "btn btn-success" %>
 				<%= link_to "Cancel", root_path, class: "btn btn-warning" %>
