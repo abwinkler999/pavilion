@@ -3,7 +3,7 @@
 <table class="table table-striped table-bordered">
 <tr>
 	<th>Girl</th>
-	<th>Rank</th>
+	<th>Level</th>
 	<th>DOB</th>
 	<th>Grade This Fall</th>
 	<th>Parent's Cell</th>
@@ -13,6 +13,7 @@
 	<th>Medications</th>
 	<th>T-Shirt Size</th>
 	<th>Schedule</th>
+	<th>Explorer High Ropes</th>
 </tr>
 <% current_user.girls.each { |x| %>
 <tr>
@@ -47,9 +48,19 @@
 		<%= "#{x.tshirt.nil? ? '?' : x.tshirt.name}"%>
 	</td>
 	<td>
+		<% if x.level == Level.find_by(name:"Tenderheart") %>
+		Tenderheart Activities
+		<% else %>
 		<ul>
-			<li><%= "#{x.session_A.name}" %></li>
+			<li><%= "A: #{x.session_A.nil? ? 'No choice' : x.session_A.name}" %></li>
+			<li><%= "B: #{x.session_B.nil? ? 'No choice' : x.session_B.name}" %></li>
+			<li><%= "C: #{x.session_C.nil? ? 'No choice' : x.session_C.name}" %></li>
+			<li><%= "D: #{x.session_D.nil? ? 'No choice' : x.session_D.name}" %></li>
 		</ul>
+		<% end %>
+	</td>
+	<td>
+		<%= "#{x.high_ropes ? "Yes" : "No"}" %>
 	</td>
 	<td>
 		<h4><%= link_to "Edit", edit_girl_path(x), class: "btn btn-primary" %></h4>

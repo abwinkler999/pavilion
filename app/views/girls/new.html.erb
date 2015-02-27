@@ -35,7 +35,19 @@
 				<%= select_tag(:level_id, options_from_collection_for_select(Level.all, :id, :name)) %>
 				<%= g.label "T-Shirt Size" %>
 				<%= select_tag(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name)) %>
-									<%= g.submit "Register Girl", class: "btn btn_default btn_success" %>
+				<%= g.label "Session A (Morning):" %>
+				<%= select_tag(:session_A_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"A")), :id, :name)) %>
+				<%= g.label "Session B (Morning):" %>
+				<%= select_tag(:session_B_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"B")), :id, :name)) %>
+				<%= g.label "Session C (Morning):" %>
+				<%= select_tag(:session_C_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"C")), :id, :name)) %>
+				<%= g.label "Session D (Afternoon):" %>
+				<%= select_tag(:session_D_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"D")), :id, :name)) %>
+				<p class="disclaimer">Please note that all Outdoor Cooking sessions require the scout to have already earned the Fire Safety merit badge.</p>
+				<%= g.label "Is this scout participating in the High Ropes course (Explorers only)?", class:"text-capitalize" %><br>
+				<%= g.check_box :high_ropes %><br>
+				<p class="disclaimer">An additional registration fee will apply for the High Ropes course.</p>
+				<%= g.submit "Register Girl", class: "btn btn_default btn_success" %>
 
 		</div>
 		<div class="col-md-4">
