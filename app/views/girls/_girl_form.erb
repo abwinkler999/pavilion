@@ -21,30 +21,38 @@
 			<%= g.text_field :parentcell %><br>
 			<%= g.label :othercell, "Alternate Phone Number" %><br />
 			<%= g.text_field :othercell %><br>
+			<br />
+			<p>
 			<%= g.label :level_id, "Level" %>
 			<%= g.select(:level_id, options_from_collection_for_select(Level.all, :id, :name, @girl.level_id)) %>
 			<%= g.label :tshirt_id, "T-Shirt Size" %>
-			<%= g.select(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name, @girl.tshirt_id)) %><br /><br />
-			<p class="disclaimer">
-				All Tenderhearts will follow a pre-set schedule.  Choosing sessions is for Explorers, Pioneers, and Patriots only.
-			</p>
-			<p>
-				<%= g.label :session_A_id, "Session A (Morning):" %>
-				<%= select_tag(:session_A_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"A")), :id, :name, @girl.session_A_id)) %><br/>
-				<%= g.label :session_B_id, "Session B (Morning):" %>
-				<%= select_tag(:session_B_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"B")), :id, :name, @girl.session_B_id)) %><br />
-				<%= g.label :session_C_id, "Session C (Morning):" %>
-				<%= select_tag(:session_C_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"C")), :id, :name, @girl.session_C_id)) %><br />
-				<%= g.label :session_D_id, "Session D (Afternoon):" %>
-				<%= select_tag(:session_D_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"D")), :id, :name, @girl.session_D_id)) %><br />
-			</p>
-			<strong>Two additional outdoor cooking sessions are available for registration on Friday:</strong>  
-			<%= g.select :cooking_session, options_for_select(["None", "Session B", "Session C"], @girl.cooking_session ||= "None") %>
-			<p class="disclaimer">
-				Please note that all Outdoor Cooking sessions require the scout to have already earned the Fire Building and Safety merit badge.
-			</p>
-			<%= g.label "Is this scout participating in the High Ropes course (Pi/Pa only)?", class:"text-capitalize" %>
-			<%= g.check_box :high_ropes %><br>
+			<%= g.select(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name, @girl.tshirt_id)) %>
+			</p><br />
+			<div id="session-choosing">
+				<p class="disclaimer">
+					All Tenderhearts will follow a pre-set schedule.  Choosing sessions is for Explorers, Pioneers, and Patriots only.
+				</p>
+				<p>
+					<%= g.label :session_A_id, "Session A (Morning):" %>
+					<%= select_tag(:session_A_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"A")), :id, :name, @girl.session_A_id)) %><br/>
+					<%= g.label :session_B_id, "Session B (Morning):" %>
+					<%= select_tag(:session_B_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"B")), :id, :name, @girl.session_B_id)) %><br />
+					<%= g.label :session_C_id, "Session C (Morning):" %>
+					<%= select_tag(:session_C_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"C")), :id, :name, @girl.session_C_id)) %><br />
+					<%= g.label :session_D_id, "Session D (Afternoon):" %>
+					<%= select_tag(:session_D_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"D")), :id, :name, @girl.session_D_id)) %><br />
+					<p class="disclaimer">
+						Session D Note: Outdoor Cooking requires you to have completed the Fire Building badge prior to camp or enrolled in Fire Building at camp.  If you have already earned your Outdoor Cooking MB at your current level and want to cook, please sign up for the Additional Session instead of this one.
+					</p>
+				</p> 
+				<p>
+					<strong>Additional Session:  Friday free choice outdoor cooking is for girls who have earned their Outdoor Cooking badge before camp, but still want to cook.  Please do not sign up for both Session D Outdoor Cooking and this one.</strong> 
+					<%= g.select :cooking_session, options_for_select(["None", "Session B", "Session C"], @girl.cooking_session ||= "None") %>
+				</p>
+
+				<%= g.label "Is this scout participating in the High Ropes course (Pi/Pa only)?", class:"text-capitalize" %>
+				<%= g.check_box :high_ropes %><br>
+			</div>
 			<p class="disclaimer">An additional $15 registration fee will apply for the High Ropes course.</p>
 			<p>
 				<%= g.submit "Save Registration", class: "btn btn-success" %>
