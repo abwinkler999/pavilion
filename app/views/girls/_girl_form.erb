@@ -2,9 +2,12 @@
 
 $('document').ready(function(){
 
+	$("#tenderheart_disclaimer").hide();
+	
 	i = $("#girl_level_id option:selected").text();
 	if (i == "Tenderheart"){
 		$("#session-choosing").hide();
+		$("#tenderheart_disclaimer").show();
 	}
 
 	$("#girl_level_id").change(function(){
