@@ -5,26 +5,29 @@
 			<%= g.text_field :first_name %>
 			<%= g.label :last_name %>:
 			<%= g.text_field :last_name %><br>
-			<%= g.label "Troop Number" %><br />
+			<%= g.label :troopnumber, "Troop Number" %><br />
 			<%= g.text_field :troopnumber %><br>
-			<%= g.label "Date of Birth (MM-DD-YYYY)" %><br />
+			<%= g.label :dob, "Date of Birth (MM/DD/YYYY)" %><br />
 			<%= g.date_field :dob %><br>
-			<%= g.label "What school grade will girl be in fall?" %><br />
+			<%= g.label :fallgrade, "What school grade will girl be in fall? (Ex.: 4)" %><br />
 			<%= g.text_field :fallgrade %><br>
-			<%= g.label "Please list any dietary restrictions:" %><br />
+			<%= g.label :dietary, "Please list any dietary restrictions:" %><br />
 			<%= g.text_field :dietary %><br>
-			<%= g.label "Gluten sensitivity?" %><br>
+			<%= g.label :no_gluten, "Gluten sensitivity?" %>
 			<%= g.check_box :no_gluten %><br>
-			<%= g.label "Will girl be checking in medications with nurse on arrival?" %><br>
+			<%= g.label :medications, "Will girl be checking in medications with nurse on arrival?" %>
 			<%= g.check_box :medications %><br>
-			<%= g.label "Parent's Phone Number" %><br />
+			<%= g.label :parentcell, "Parent's Phone Number" %><br />
 			<%= g.text_field :parentcell %><br>
-			<%= g.label "Alternate Phone Number" %><br />
+			<%= g.label :othercell, "Alternate Phone Number" %><br />
 			<%= g.text_field :othercell %><br>
-			<%= g.label "Level" %>
-			<%= select_tag(:level_id, options_from_collection_for_select(Level.all, :id, :name, @girl.level_id)) %>
+			<%= g.label :level_id, "Level" %>
+			<%= g.select(:level_id, options_from_collection_for_select(Level.all, :id, :name, @girl.level_id)) %>
 			<%= g.label :tshirt_id, "T-Shirt Size" %>
-			<%= select_tag(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name, @girl.tshirt_id)) %><br /><br />
+			<%= g.select(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name, @girl.tshirt_id)) %><br /><br />
+			<p class="disclaimer">
+				All Tenderhearts will follow a pre-set schedule.  Choosing sessions is for Explorers, Pioneers, and Patriots only.
+			</p>
 			<p>
 				<%= g.label :session_A_id, "Session A (Morning):" %>
 				<%= select_tag(:session_A_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"A")), :id, :name, @girl.session_A_id)) %><br/>
@@ -35,16 +38,18 @@
 				<%= g.label :session_D_id, "Session D (Afternoon):" %>
 				<%= select_tag(:session_D_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"D")), :id, :name, @girl.session_D_id)) %><br />
 			</p>
+			<strong>Two additional outdoor cooking sessions are available for registration on Friday:</strong>  
+			<%= g.select :cooking_session, options_for_select(["None", "Session B", "Session C"], @girl.cooking_session ||= "None") %>
 			<p class="disclaimer">
 				Please note that all Outdoor Cooking sessions require the scout to have already earned the Fire Building and Safety merit badge.
 			</p>
-			<%= g.label "Is this scout participating in the High Ropes course (Pi/Pa only)?", class:"text-capitalize" %><br>
+			<%= g.label "Is this scout participating in the High Ropes course (Pi/Pa only)?", class:"text-capitalize" %>
 			<%= g.check_box :high_ropes %><br>
 			<p class="disclaimer">An additional $15 registration fee will apply for the High Ropes course.</p>
 			<p>
-				<%= g.submit "Edit Registration", class: "btn btn_default btn_success" %>
+				<%= g.submit "Save Registration", class: "btn btn-success" %>
+				<%= link_to "Cancel", root_path, class: "btn btn-warning" %>
 			</p>
-		<%= link_to "Cancel", :root, class: "btn btn_primary" %>
 		<% end %>
 	</div>
 </div>

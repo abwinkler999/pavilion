@@ -1,6 +1,6 @@
 <div class="row main_banner">
 	<div class="col-md-10">
-		<h1 class="main_banner_text">American Heritage Girls - Camp Marengo 2015</h1>
+		<h1 class="main_banner_text">AHG Summer Camp Marengo 2015</h1>
 	</div>
 	<div class="col-md-2">
 		<div class="login_signup">
@@ -18,12 +18,12 @@
 </div>
 <div class="row login_row">
 	<div class="col-md-10">
-		<h2 class="main_banner_text">Residence Camp Registration Site</h2>
+		<h2 class="main_banner_text">Summer Camp Registration Site</h2>
 	</div>
 
 	<div class="col-md-2">
 	<% if user_signed_in? %>
-		<%= current_user.email %>
+		<%= "You are #{current_user.email}" %>
 		<%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-default rightshift-button" %>
 	<% end %>
 	</div>

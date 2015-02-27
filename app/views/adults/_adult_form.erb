@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="col-md-11 col-md-offset-1">
+		<%= form_for @adult do |g| %>
+			<%= g.label :first_name %>:
+			<%= g.text_field :first_name %>
+			<%= g.label :last_name %>:
+			<%= g.text_field :last_name %><br>
+			<%= g.label :address, "Street Address, City, State, ZIP Code", id: "addressfield" %><br />
+			<%= g.text_field :address %><br>
+			<%= g.label :phone, "Phone Number" %><br />
+			<%= g.text_field :phone %><br>
+			<%= g.label :troopnumber, "Troop Number" %><br />
+			<%= g.text_field :troopnumber %><br>
+			<%= g.label :troopcontact, "Troop Coordinator's Name and Contact Information:" %><br />
+			<%= g.text_field :troopcontact %><br>
+			<%= g.label :dietary, "Please list any dietary restrictions:" %><br />
+			<%= g.text_field :dietary %><br>
+			<%= g.label :no_gluten, "Gluten sensitivity?" %>
+			<%= g.check_box :no_gluten %><br>
+			<%= g.label :halfweek, "Staying only half the week?" %>
+			<%= g.check_box :halfweek %><br>
+			<%= g.label :cpr, "Do you have a current CPR certification?" %>
+			<%= g.check_box :cpr %><br>
+			<%= g.label :first_aid, "Do you have a current first aid certification?" %>
+			<%= g.check_box :first_aid %><br>
+			<%= g.label :tshirt_id, "T-Shirt Size" %>
+			<%= g.select(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name, @adult.tshirt_id)) %>
+			<p>
+				<%= g.submit "Save Registration", class: "btn btn-success" %>
+				<%= link_to "Cancel", root_path, class: "btn btn-warning" %>
+			</p>
+		<% end %>
+
+	</div>
+</div>

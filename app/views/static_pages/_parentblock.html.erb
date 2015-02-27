@@ -1,22 +1,26 @@
 <div class="parentblock">
 	<% unless current_user.adult %>
-		<h3>(Adult is not attending Camp Marengo 2015)</h3>
+		<h3>(Adult is not registered for Camp Marengo 2015)</h3>
 		<%= link_to "Register Adult to Attend", new_adult_path, class: "btn btn-success" %>
 	<% else %> 
 		<% the_adult = current_user.adult %>
 		<h3>You are Attending Camp Marengo 2015!</h3>
-		<h3><%=	"#{the_adult.first_name} #{the_adult.last_name}" %></h3>
-		<%= "Troop: #{the_adult.troopnumber}" %><br />
-		<%= "(Troop Contact: #{the_adult.troopcontact})" %><br />
-		<%= "Phone: #{the_adult.phone}" %><br />
-		<%= "Mailing address: #{the_adult.address}" %><br />
-		<%= "Dietary restrictions: #{the_adult.dietary}" %><br />
-		<h4><%= "Gluten intolerance?  #{the_adult.no_gluten? ? "Y" : "N"}" %></h4>
-		<h4><%= "Staying half the week?  #{the_adult.halfweek? ? "Y" : "N"}" %></h4>
-		<h4><%= "CPR trained?  #{the_adult.cpr? ? "Y" : "N"}" %></h4>
-		<h4><%= "First aid trained?  #{the_adult.cpr? ? "Y" : "N"}" %></h4>
-		<%= "T-shirt Size: #{the_adult.tshirt.nil? ? '?' : the_adult.tshirt.name}" %>
+		<div id="attendeeinfo">
+			<h3><%=	"#{the_adult.first_name} #{the_adult.last_name}" %></h3>
+			<%= "Troop: #{the_adult.troopnumber}" %><br />
+			<%= "(Troop Contact: #{the_adult.troopcontact})" %><br />
+			<%= "Phone: #{the_adult.phone}" %><br />
+			<%= "Mailing address: #{the_adult.address}" %><br />
+			<%= "Dietary restrictions: #{the_adult.dietary}" %><br />
+			<%= "Gluten intolerance?  #{the_adult.no_gluten? ? "Y" : "N"}" %><br />
+			<%= "Staying half the week?  #{the_adult.halfweek? ? "Y" : "N"}" %><br />
+			<%= "CPR trained?  #{the_adult.cpr? ? "Y" : "N"}" %><br />
+			<%= "First aid trained?  #{the_adult.cpr? ? "Y" : "N"}" %><br />
+		<%= "T-shirt Size: #{the_adult.tshirt.nil? ? '?' : the_adult.tshirt.name}" %><br />
+		</div>
+		<p>
 		<%= link_to "Edit Adult Registration", edit_adult_path(the_adult), class: "btn btn-primary" %>
-		<h4><%= link_to "Cancel Adult Registration", adult_path(the_adult), method: :delete, data: { confirm: "Are you certain you want to cancel your registration?" }, class: "btn btn-danger" %></h4>
+		<%= link_to "Cancel Adult Registration", adult_path(the_adult), method: :delete, data: { confirm: "Are you certain you want to cancel your registration?" }, class: "btn btn-danger" %>
+		</p>
 	<% end %>
 </div>

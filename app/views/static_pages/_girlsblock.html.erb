@@ -13,7 +13,7 @@
 	<th>Medications</th>
 	<th>T-Shirt Size</th>
 	<th>Schedule</th>
-	<th>Explorer High Ropes</th>
+	<th>Pi/Pa High Ropes</th>
 </tr>
 <% current_user.girls.each { |x| %>
 <tr>
@@ -56,6 +56,9 @@
 			<li><%= "B: #{x.session_B.nil? ? 'No choice' : x.session_B.name}" %></li>
 			<li><%= "C: #{x.session_C.nil? ? 'No choice' : x.session_C.name}" %></li>
 			<li><%= "D: #{x.session_D.nil? ? 'No choice' : x.session_D.name}" %></li>
+			<% unless x.cooking_session == "None" %>
+				<li><%= "Friday Outdoor Cooking: #{x.cooking_session}" %></li>
+			<% end %>
 		</ul>
 		<% end %>
 	</td>

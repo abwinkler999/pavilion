@@ -6,7 +6,6 @@ class AdultsController < ApplicationController
 	def create
 		@adult = Adult.new(adult_params)
 		@adult.user = current_user
-		@adult.tshirt = Tshirt.find_by(id:params[:tshirt_id])
 	    if @adult.save
 	      redirect_to :root
 	    else
@@ -21,7 +20,6 @@ class AdultsController < ApplicationController
 	def update
 		@adult = Adult.find(params[:id])
 		@adult.user = current_user
-		@adult.tshirt = Tshirt.find_by(id:params[:tshirt_id])
 		# => binding.pry
 	    if @adult.update_attributes(adult_params)
 	      redirect_to :root

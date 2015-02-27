@@ -8,38 +8,5 @@
 	<% end %>
 	</ul>
 	<% end %>
-	<div class="row">
-		<div class="col-md-11 col-md-offset-1">
-			<%= form_for @adult do |g| %>
-				<%= g.label :first_name %>:
-				<%= g.text_field :first_name %>
-				<%= g.label :last_name %>:
-				<%= g.text_field :last_name %><br>
-				<%= g.label "Street Address, City, State, ZIP Code" %><br />
-				<%= g.text_field :address %><br>
-				<%= g.label "Phone Number" %><br />
-				<%= g.text_field :phone %><br>
-				<%= g.label "Troop Number" %><br />
-				<%= g.text_field :troopnumber %><br>
-				<%= g.label "Troop Coordinator's Name and Contact Information" %><br />
-				<%= g.text_field :troopcontact %><br>
-				<%= g.label "Please list any dietary restrictions:" %><br />
-				<%= g.text_field :dietary %><br>
-				<%= g.label "Gluten sensitivity?" %><br>
-				<%= g.check_box :no_gluten %><br>
-				<%= g.label "Staying only half the week?" %><br>
-				<%= g.check_box :halfweek %><br>
-				<%= g.label "Do you have a current CPR certification?" %><br>
-				<%= g.check_box :cpr %><br>
-				<%= g.label "Do you have a current first aid certification?" %><br>
-				<%= g.check_box :first_aid %><br>
-				<%= g.label "T-Shirt Size" %>
-				<%= select_tag(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name)) %>
-				<p>
-					<%= g.submit "Register Adult Attendee", class: "btn btn_default btn_success" %>
-				</p>
-			<% end %>
-				<%= link_to "Cancel", :root, class: "btn btn_primary" %>
-		</div>
-	</div>
+	<%= render "adult_form" %>
 </div>
