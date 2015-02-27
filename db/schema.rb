@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226212124) do
+ActiveRecord::Schema.define(version: 20150227005823) do
 
   create_table "adults", force: true do |t|
     t.string   "first_name"
@@ -23,9 +23,12 @@ ActiveRecord::Schema.define(version: 20150226212124) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "halfweek",    default: false
+    t.boolean  "halfweek",     default: false
     t.integer  "tshirt_id"
     t.string   "troopnumber"
+    t.string   "troopcontact"
+    t.string   "dietary"
+    t.boolean  "no_gluten"
   end
 
   create_table "girls", force: true do |t|

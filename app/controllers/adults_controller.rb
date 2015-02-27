@@ -14,6 +14,22 @@ class AdultsController < ApplicationController
 		end
     end
 
+	def edit
+		@adult = Adult.find(params[:id])
+	end
+
+	def update
+		@adult = Adult.find(params[:id])
+		@adult.user = current_user
+		@adult.tshirt = Tshirt.find_by(id:params[:tshirt_id])
+		# => binding.pry
+	    if @adult.update_attributes(adult_params)
+	      redirect_to :root
+	    else
+	      render 'edit'
+		end
+	end
+
     def destroy
 		@adult = Adult.find(params[:id])
 		@adult.destroy
@@ -23,6 +39,6 @@ class AdultsController < ApplicationController
 	private
 
 	def adult_params
-		params.require(:adult).permit(:first_name, :last_name, :address, :phone, :troopnumber, :tshirt_id, :cpr, :first_aid, :halfweek)
+		params.require(:adult).permit(:first_name, :last_name, :address, :phone, :troopnumber, :tshirt_id, :cpr, :first_aid, :halfweek, :dietary, :no_gluten, :troopcontact)
 	end
 end
