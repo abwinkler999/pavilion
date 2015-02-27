@@ -27,7 +27,7 @@ Session.find_or_create_by(name: "Outdoor Skills/Backpacking", slot:Slot.find_by(
 Session.find_or_create_by(name: "Textile Arts", slot:Slot.find_by(name:"B"))
 Session.find_or_create_by(name: "Swimming", slot:Slot.find_by(name:"B"))
 Session.find_or_create_by(name: "Archery", slot:Slot.find_by(name:"B"))
-Session.find_or_create_by(name: "Fire Building (Explorers Age 11 and Up Only)", slot:Slot.find_by(name:"B"))
+Session.find_or_create_by(name: "Fire Building", slot:Slot.find_by(name:"B"))
 
 Session.find_or_create_by(name: "Outdoor Skills/Backpacking", slot:Slot.find_by(name:"C"))
 Session.find_or_create_by(name: "Bible Basics", slot:Slot.find_by(name:"C"))

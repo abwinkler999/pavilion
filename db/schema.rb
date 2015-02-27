@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227070324) do
+ActiveRecord::Schema.define(version: 20150227172024) do
 
   create_table "adults", force: true do |t|
     t.string   "first_name"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150227070324) do
   create_table "girls", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.date     "dob"
+    t.string   "dob"
     t.integer  "level_id"
     t.string   "dietary"
     t.boolean  "no_gluten"
