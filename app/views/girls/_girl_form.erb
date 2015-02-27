@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="col-md-7 col-md-offset-1">
+		<%= form_for @girl do |g| %>
+			<%= g.label :first_name %>:
+			<%= g.text_field :first_name %>
+			<%= g.label :last_name %>:
+			<%= g.text_field :last_name %><br>
+			<%= g.label "Troop Number" %><br />
+			<%= g.text_field :troopnumber %><br>
+			<%= g.label "Date of Birth (MM-DD-YYYY)" %><br />
+			<%= g.date_field :dob %><br>
+			<%= g.label "What school grade will girl be in fall?" %><br />
+			<%= g.text_field :fallgrade %><br>
+			<%= g.label "Please list any dietary restrictions:" %><br />
+			<%= g.text_field :dietary %><br>
+			<%= g.label "Gluten sensitivity?" %><br>
+			<%= g.check_box :no_gluten %><br>
+			<%= g.label "Will girl be checking in medications with nurse on arrival?" %><br>
+			<%= g.check_box :medications %><br>
+			<%= g.label "Parent's Phone Number" %><br />
+			<%= g.text_field :parentcell %><br>
+			<%= g.label "Alternate Phone Number" %><br />
+			<%= g.text_field :othercell %><br>
+			<%= g.label "Level" %>
+			<%= select_tag(:level_id, options_from_collection_for_select(Level.all, :id, :name, @girl.level_id)) %>
+			<%= g.label :tshirt_id, "T-Shirt Size" %>
+			<%= select_tag(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name, @girl.tshirt_id)) %><br /><br />
+			<p>
+				<%= g.label :session_A_id, "Session A (Morning):" %>
+				<%= select_tag(:session_A_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"A")), :id, :name, @girl.session_A_id)) %><br/>
+				<%= g.label :session_B_id, "Session B (Morning):" %>
+				<%= select_tag(:session_B_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"B")), :id, :name, @girl.session_B_id)) %><br />
+				<%= g.label :session_C_id, "Session C (Morning):" %>
+				<%= select_tag(:session_C_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"C")), :id, :name, @girl.session_C_id)) %><br />
+				<%= g.label :session_D_id, "Session D (Afternoon):" %>
+				<%= select_tag(:session_D_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"D")), :id, :name, @girl.session_D_id)) %><br />
+			</p>
+			<p class="disclaimer">
+				Please note that all Outdoor Cooking sessions require the scout to have already earned the Fire Building and Safety merit badge.
+			</p>
+			<%= g.label "Is this scout participating in the High Ropes course (Pi/Pa only)?", class:"text-capitalize" %><br>
+			<%= g.check_box :high_ropes %><br>
+			<p class="disclaimer">An additional $15 registration fee will apply for the High Ropes course.</p>
+			<p>
+				<%= g.submit "Edit Registration", class: "btn btn_default btn_success" %>
+			</p>
+		<%= link_to "Cancel", :root, class: "btn btn_primary" %>
+		<% end %>
+	</div>
+</div>
