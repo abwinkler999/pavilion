@@ -12,6 +12,7 @@
 	<th>Gluten Restriction</th>
 	<th>Medications</th>
 	<th>T-Shirt Size</th>
+	<th>Schedule</th>
 </tr>
 <% current_user.girls.each { |x| %>
 <tr>
@@ -44,6 +45,11 @@
 	</td>
 	<td>
 		<%= "#{x.tshirt.nil? ? '?' : x.tshirt.name}"%>
+	</td>
+	<td>
+		<ul>
+			<li><%= "#{x.session_A.name}" %></li>
+		</ul>
 	</td>
 	<td>
 		<h4><%= link_to "Edit", edit_girl_path(x), class: "btn btn-primary" %></h4>

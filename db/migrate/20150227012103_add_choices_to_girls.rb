@@ -10,8 +10,8 @@ class AddChoicesToGirls < ActiveRecord::Migration
 	  	end
 
 	  	change_table(:sessions) do |t|
-		    t.destroy  "description"
-		    t.destroy  "restriction_id"
+		    t.remove  "description"
+		    t.remove  "restriction_id"
 	  	end
 	end
 end

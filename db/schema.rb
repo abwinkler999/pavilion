@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227005823) do
+ActiveRecord::Schema.define(version: 20150227012103) do
 
   create_table "adults", force: true do |t|
     t.string   "first_name"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 20150227005823) do
     t.string   "othercell"
     t.string   "troopnumber"
     t.integer  "tshirt_id"
+    t.integer  "session_A_id"
+    t.integer  "session_B_id"
+    t.integer  "session_C_id"
+    t.integer  "session_D_id"
+    t.string   "cooking_session"
+    t.boolean  "high_ropes"
   end
 
   create_table "girls_sessions", id: false, force: true do |t|
@@ -68,8 +74,6 @@ ActiveRecord::Schema.define(version: 20150227005823) do
 
   create_table "sessions", force: true do |t|
     t.string   "name"
-    t.string   "description"
-    t.integer  "restriction_id"
     t.integer  "slot_id"
     t.datetime "created_at"
     t.datetime "updated_at"
