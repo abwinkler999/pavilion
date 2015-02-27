@@ -3,11 +3,18 @@
 $('document').ready(function(){
 
 	$("#tenderheart_disclaimer").hide();
-	
+	$("#hiking_note").hide();
+
 	i = $("#girl_level_id option:selected").text();
 	if (i == "Tenderheart"){
 		$("#session-choosing").hide();
 		$("#tenderheart_disclaimer").show();
+	}
+
+	i = $("#session_B_id option:selected").text();
+	if (i == "Outdoor Skills/Backpacking"){
+		$("#hiking_note").show();
+		$('#session_C_id').attr('disabled', 'disabled');
 	}
 
 	$("#girl_level_id").change(function(){
@@ -19,6 +26,43 @@ $('document').ready(function(){
 		else{
 			$("#tenderheart_disclaimer").show();
 			$("#session-choosing").slideUp();
+		}
+	});
+
+	$("#session_B_id").change(function(){
+		console.log("session B was selected");
+		i = $("#session_B_id option:selected").text();
+		console.log("selected:" + i);
+		if (i == "Outdoor Skills/Backpacking"){
+			console.log("triggered");
+			j = $("#session_C_id option:selected").val(); 
+			console.log("C was: " + j);
+			$("#hiking_note").show();
+			$("#session_C_id").val("9"); // Session C Outdoor Backpacking = 9
+			$('#session_C_id').attr('disabled', 'disabled');
+		}
+		else{
+
+			i = $("#session_C_id option:selected").text();
+			if (i == "Outdoor Skills/Backpacking"){
+				$("#hiking_note").hide();
+				$("#session_C_id").val("10"); // Session C Bible Basics = 10
+				$('#session_C_id').removeAttr('disabled');
+			}
+		}
+	});
+
+	$("#session_C_id").change(function(){
+		console.log("session B was selected");
+		i = $("#session_C_id option:selected").text();
+		console.log("selected:" + i);
+		if (i == "Outdoor Skills/Backpacking"){
+			console.log("triggered");
+			j = $("#session_B_id option:selected").val(); 
+			console.log("B was: " + j);
+			$("#hiking_note").show();
+			$("#session_B_id").val("4"); // Session B Outdoor Backpacking = 4
+			$('#session_C_id').attr('disabled', 'disabled');
 		}
 	});
 });
@@ -64,7 +108,7 @@ $('document').ready(function(){
 					<%= g.label :session_B_id, "Session B (Morning):" %>
 					<%= select_tag(:session_B_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"B")), :id, :name, @girl.session_B_id)) %><br />
 					<%= g.label :session_C_id, "Session C (Morning):" %>
-					<%= select_tag(:session_C_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"C")), :id, :name, @girl.session_C_id)) %><br />
+					<%= select_tag(:session_C_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"C")), :id, :name, @girl.session_C_id)) %><span id="hiking_note" class="disclaimer">   (Outdoor Skills/Backpacking lasts through both Sessions B and C.)</span><br />
 					<%= g.label :session_D_id, "Session D (Afternoon):" %>
 					<%= select_tag(:session_D_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"D")), :id, :name, @girl.session_D_id)) %><br />
 					<p class="disclaimer">
