@@ -6,7 +6,7 @@
 		<div class="login_signup">
 			<% if user_signed_in? %>
 				<% if current_user.is_admin %>
-					<%= link_to "Admin", admin_path, class: "btn btn-default login-buttons" %>
+					<%= link_to "Admin", admin_path, class: "btn btn-primary login-buttons" %>
 				<% end %>
 				<%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn btn-default login-buttons" %>
 			<% else %>
