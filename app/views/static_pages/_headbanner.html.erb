@@ -23,7 +23,7 @@
 
 	<div class="col-md-2">
 	<% if user_signed_in? %>
-		<%= "You are #{current_user.email}" %>
+		<span class="not-as-tiny-text welcome-user"><%= "Welcome #{current_user.email}" %></span>
 		<%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-default rightshift-button" %>
 	<% end %>
 	</div>

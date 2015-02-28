@@ -5,7 +5,7 @@
 	<% else %> 
 		<% the_adult = current_user.adult %>
 		<h3>You are Attending Camp Marengo 2015!</h3>
-		<div id="attendeeinfo">
+		<div id="attendeeinfo" class="well">
 			<h3><%=	"#{the_adult.first_name} #{the_adult.last_name}" %></h3>
 			<%= "Troop: #{the_adult.troopnumber}" %><br />
 			<%= "(Troop Contact: #{the_adult.troopcontact})" %><br />
