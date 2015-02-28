@@ -19,11 +19,12 @@ class GirlsController < ApplicationController
 
 	def edit
 		@girl = Girl.find(params[:id])
+		verify_owner(@girl)
 	end
 
 	def update
 		@girl = Girl.find(params[:id])
-		@girl.user = current_user
+		verify_owner(@girl)
 		@girl.session_A = Session.find_by(id:params[:session_A_id])
 		@girl.session_B = Session.find_by(id:params[:session_B_id])
 		@girl.session_C = Session.find_by(id:params[:session_C_id])
@@ -37,6 +38,7 @@ class GirlsController < ApplicationController
 
 	def destroy
 		@girl = Girl.find(params[:id])
+		verify_owner(@girl)
 		@girl.destroy
 		redirect_to :root
 	end

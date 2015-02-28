@@ -15,11 +15,12 @@ class AdultsController < ApplicationController
 
 	def edit
 		@adult = Adult.find(params[:id])
+		verify_owner(@adult)
 	end
 
 	def update
 		@adult = Adult.find(params[:id])
-		@adult.user = current_user
+		verify_owner(@adult)
 	    if @adult.update_attributes(adult_params)
 	      redirect_to :root
 	    else
@@ -29,6 +30,7 @@ class AdultsController < ApplicationController
 
     def destroy
 		@adult = Adult.find(params[:id])
+		verify_owner(@adult)
 		@adult.destroy
 		redirect_to :root
 	end
