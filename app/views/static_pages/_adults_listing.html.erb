@@ -1,0 +1,52 @@
+<table class="table table-striped table-bordered tiny-text">
+<tr>
+	<th>Adult</th>
+	<th>Address</th>
+	<th>Phone</th>
+	<th>Troop</th>
+	<th>Troop Contact</th>
+	<th>Dietary Restrictions</th>
+	<th>Gluten Restriction</th>
+	<th>CPR</th>
+	<th>First Aid</th>
+	<th>T-Shirt Size</th>
+	<th>Half Week?</th>
+</tr>
+<% Adult.all.each { |x| %>
+<tr>
+	<td>
+		<%= "#{x.first_name} #{x.last_name}" %>
+	</td>
+	<td>
+		<%= "#{x.address}" %>
+	</td>
+	<td>
+		<%= "#{x.phone}" %>
+	</td>
+	<td>
+		<%= "#{x.troopnumber}" %>
+	</td>
+	<td>
+		<%= "#{x.troopcontact}" %>
+	</td>
+	<td>
+		<%= "#{x.dietary}" %>
+	</td>
+		<td>
+		<%= "#{x.no_gluten ? "Yes" : "No"}" %>
+	</td>
+	<td>
+		<%= "#{x.cpr ? "Yes" : "No"}" %>
+	</td>
+	<td>
+		<%= "#{x.first_aid ? "Yes" : "No"}" %>
+	</td>
+	<td>
+		<%= "#{x.tshirt.nil? ? '?' : x.tshirt.name}"%>
+	</td>
+	<td>
+		<%= "#{x.halfweek ? "Yes" : "No"}" %>
+	</td>
+</tr>
+<% } %>
+</table>

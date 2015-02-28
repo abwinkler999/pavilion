@@ -1,5 +1,0 @@
-<% headers = ['First Name', 'Last Name'] %>
-<%= CSV.generate_line headers %>
-<% @girls.each do |girl| %>
-<%= CSV.generate_line([girl.first_name, girl.last_name]) %>
-<% end %>

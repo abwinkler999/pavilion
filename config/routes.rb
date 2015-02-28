@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#home'
   get 'admin', to:'static_pages#admin', as: :admin
-  get 'csv', to:'static_pages#csv', as: :csv
+  get 'csv_girls', to:'static_pages#csv_girls', as: :csv_girls
+  get 'csv_adults', to:'static_pages#csv_adults', as: :csv_adults
   #get 'static_pages/csv'
   get 'static_pages/home'
   #get 'static_pages/admin'

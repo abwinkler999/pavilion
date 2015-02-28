@@ -1,1 +1,18 @@
-<%= link_to 'Download CSV list', csv_path(format: :csv) %>
+<div class="row">
+	<div class="col-md-10 col-md-offset-2 buttons_row">
+		<%= link_to 'Download List of Girls', csv_girls_path(format: :csv), class: "btn btn-info" %>
+		<%= link_to 'Download List of Adults', csv_adults_path(format: :csv), class: "btn btn-info" %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<h4>All Registered Adults</h4>
+		<%= render "adults_listing" %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<h4>All Registered Girls</h4>
+		<%= render "girls_listing" %>
+	</div>
+</div>
