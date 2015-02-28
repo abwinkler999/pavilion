@@ -20,7 +20,6 @@ class AdultsController < ApplicationController
 	def update
 		@adult = Adult.find(params[:id])
 		@adult.user = current_user
-		# => binding.pry
 	    if @adult.update_attributes(adult_params)
 	      redirect_to :root
 	    else

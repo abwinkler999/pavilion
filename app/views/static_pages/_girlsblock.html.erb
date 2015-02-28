@@ -49,17 +49,22 @@
 	</td>
 	<td>
 		<% if x.level == Level.find_by(name:"Tenderheart") %>
-		Tenderheart Activities
+			<strong>Tenderheart Activities</strong>
 		<% else %>
-		<ul>
-			<li><%= "A: #{x.session_A.nil? ? 'No choice' : x.session_A.name}" %></li>
-			<li><%= "B: #{x.session_B.nil? ? 'No choice' : x.session_B.name}" %></li>
-			<li><%= "C: #{x.session_C.nil? ? 'No choice' : x.session_C.name}" %></li>
-			<li><%= "D: #{x.session_D.nil? ? 'No choice' : x.session_D.name}" %></li>
-			<% unless x.cooking_session == "None" %>
-				<li><%= "Friday Outdoor Cooking: #{x.cooking_session}" %></li>
+			<%= "A: "%><strong><%= "#{x.session_A.nil? ? 'No choice' : x.session_A.name}" %></strong><br />
+			<% if !x.session_B.nil? && x.session_B.name == "Outdoor Skills/Backpacking" %>
+			<%= "B and C:" %>
+			<% else %>
+			<%= "B:" %>
 			<% end %>
-		</ul>
+			<strong><%= "#{x.session_B.nil? ? 'No choice' : x.session_B.name}" %></strong><br />
+			<% unless x.session_C.nil? %>
+			<%= "C: "%><strong><%= "#{x.session_C.nil? ? 'No choice' : x.session_C.name}" %></strong><br />
+			<% end %>
+			<%= "D: "%><strong><%= "#{x.session_D.nil? ? 'No choice' : x.session_D.name}" %></strong><br />
+			<% unless x.cooking_session == "None" %>
+				<strong><%= "Friday Outdoor Cooking: #{x.cooking_session}" %></strong><br/>
+			<% end %>
 		<% end %>
 	</td>
 	<td>
