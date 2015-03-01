@@ -14,6 +14,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<h4><%= Girl.all.count %> Registered Girls</h4>
-		<%= render "girls_listing" %>
+		<% @admin_display = true %>
+		<%= render "girl_table" %>
 	</div>
 </div>
