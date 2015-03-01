@@ -5,7 +5,12 @@
 	<th><%= caption.to_s %>
 	<% } %>
 </tr>
-<% current_user.girls.each { |x| %>
+<% if @admin_display %>
+	<% collection_to_display = Girl.all %>
+<% else %>
+	<% collection_to_display = current_user.girls %>
+<% end %>
+<% collection_to_display.each { |x| %>
 <tr>
 	<td>
 		<%= "#{x.first_name} #{x.last_name}" %>

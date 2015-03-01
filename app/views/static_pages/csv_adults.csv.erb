@@ -2,5 +2,5 @@
 	'CPR', 'First Aid', 'T-Shirt', 'Half Week Only'] %>
 <%= CSV.generate_line headers %>
 <% @adults.each do |adult| %>
-<%= CSV.generate_line([adult.first_name, adult.last_name, format_for_csv(adult.address), format_for_csv(adult.phone), format_for_csv(adult.troopnumber), format_for_csv(adult.troopcontact), format_for_csv(adult.dietary), yes_or_no(adult.no_gluten), yes_or_no(adult.cpr),	yes_or_no(adult.first_aid), adult.tshirt.name, yes_or_no(adult.halfweek)].flatten, encoding:"utf-8") %>
+	<%= CSV.generate_line([adult.first_name, adult.last_name, format_for_csv(adult.address), format_for_csv(adult.phone), format_for_csv(adult.troopnumber), format_for_csv(adult.troopcontact), format_for_csv(adult.dietary), yes_or_no(adult.no_gluten), yes_or_no(adult.cpr),	yes_or_no(adult.first_aid), adult.tshirt.name, yes_or_no(adult.halfweek)].flatten, encoding:"utf-8") %>
 <% end %>
