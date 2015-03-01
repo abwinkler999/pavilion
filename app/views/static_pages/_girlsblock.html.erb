@@ -1,7 +1,6 @@
 <% @admin_display = false %>
 <div id="girls_list_block">
 <h3>Girls Registered For Camp Marengo 2015</h3>
-<% @admin_display = false %>
-<%= render "girl_table" %>
+<%= render "girl_table", admin_display: false %>
 <%= link_to "Register Another Girl", new_girl_path, class: "btn btn-success" %>
 </div>
