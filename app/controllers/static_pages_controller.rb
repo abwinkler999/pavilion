@@ -4,16 +4,11 @@ class StaticPagesController < ApplicationController
   end
 
   def admin
-	  unless user_signed_in? && current_user.is_admin?
-	  	redirect_to action: "home"
-	  end
+	bounce_nonadmin
   end
 
   def csv_girls
-	unless user_signed_in? && current_user.is_admin?
-		redirect_to action: "home"
-	end
-	#@users = User.find_by(attending: true)
+	bounce_nonadmin
 	@girls = Girl.all
 	respond_to do |format|
 		format.html
@@ -25,10 +20,7 @@ class StaticPagesController < ApplicationController
   end
 
 def csv_adults
-	unless user_signed_in? && current_user.is_admin?
-		redirect_to action: "home"
-	end
-	#@users = User.find_by(attending: true)
+	bounce_nonadmin
 	@adults = Adult.all
 	respond_to do |format|
 		format.html
@@ -39,3 +31,12 @@ def csv_adults
 	end
   end
 end
+
+private
+
+def bounce_nonadmin
+	unless user_signed_in? && current_user.is_admin?
+		redirect_to action: "home"
+	end
+end
+

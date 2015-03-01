@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   #get 'static_pages/admin'
 
+  get '404', :to => 'static_pages#home'
+
   resources :girls
   resources :adults
 
