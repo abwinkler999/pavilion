@@ -1,17 +1,9 @@
 <table class="table table-striped table-bordered tiny-text">
 <tr>
-	<th>Girl</th>
-	<th>Level</th>
-	<th>DOB</th>
-	<th>Grade This Fall</th>
-	<th>Parent's Cell</th>
-	<th>Other Cell</th>
-	<th>Dietary Restrictions</th>
-	<th>Gluten Restriction</th>
-	<th>Medications</th>
-	<th>T-Shirt Size</th>
-	<th>Schedule</th>
-	<th>Pi/Pa High Ropes</th>
+	<% ["Girl", "Level", "DOB", "Grade This Fall", "Parent's Cell", "Other Cell", "Dietary Restrictions",
+		"Gluten Restriction", "Medications", "T-Shirt Size", "Schedule", "Pi/Pa High Ropes"].each { |caption| %>
+	<th><%= caption.to_s %>
+	<% } %>
 </tr>
 <% Girl.all.each { |x| %>
 <tr>
