@@ -14,3 +14,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore config files for now.
+/app/config/environments/*.rb

@@ -1,4 +1,4 @@
-class SignupMailer < ActionMailer::Base
+class CampMailer < ActionMailer::Base
   default from: "ahgsummercampmarengo@gmail.com"
   
   def welcome_email(user)
