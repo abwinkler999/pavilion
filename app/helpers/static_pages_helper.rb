@@ -1,6 +1,6 @@
 module StaticPagesHelper
 	def format_for_csv(input)
-		input.sub!(",", "")
+		input.gsub!(",", "")
 		#input.sub!("&", "&amp;")
 		input.length == 0 ? "none" : input
 	end
