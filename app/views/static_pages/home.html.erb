@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.is_admin %>
 <div class="row mainblock">
 	<div class="row">
 		<div class="col-md-12">
@@ -13,6 +13,6 @@
 </div>
 <% else %>
 <div id="please_sign_in">
-	<h3>Please create an account to register adults and girls for Camp Marengo 2015.</h3>
+	<h3>Registration for Camp Marengo 2015 has ended.</h3>
 </div>
 <% end %>
