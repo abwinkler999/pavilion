@@ -1,4 +1,4 @@
-<% headers = ['First Name', 'Last Name', 'Address', 'Phone', 'Troop', 'Troop Contact', 'Dietary Requirements', 'Gluten Restricted',
+<% headers = ['Last Name', 'First Name', 'Address', 'Phone', 'Troop', 'Troop Contact', 'Dietary Requirements', 'Gluten Restricted',
 	'CPR', 'First Aid', 'T-Shirt', 'Half Week Only'] %>
 <%= CSV.generate_line headers %>
 <% @adults.each do |adult| %>
