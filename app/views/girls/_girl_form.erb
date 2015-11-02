@@ -2,13 +2,13 @@
 
 $('document').ready(function(){
 
-	$("#tenderheart_disclaimer").hide();
+	$("#cub_disclaimer").hide();
 	$("#hiking_note").hide();
 
 	i = $("#girl_level_id option:selected").text();
-	if (i == "Tenderheart"){
+	if (i == "Cub"){
 		$("#session-choosing").hide();
-		$("#tenderheart_disclaimer").show();
+		$("#cub_disclaimer").show();
 	}
 
 	i = $("#session_B_id option:selected").text();
@@ -19,12 +19,12 @@ $('document').ready(function(){
 
 	$("#girl_level_id").change(function(){
 		i = $("#girl_level_id option:selected").text();
-		if (i != "Tenderheart"){
-			$("#tenderheart_disclaimer").hide();
+		if (i != "Cub"){
+			$("#cub_disclaimer").hide();
 			$("#session-choosing").slideDown();
 		}
 		else{
-			$("#tenderheart_disclaimer").show();
+			$("#cub_disclaimer").show();
 			$("#session-choosing").slideUp();
 		}
 	});
@@ -35,7 +35,7 @@ $('document').ready(function(){
 		console.log("selected:" + i);
 		if (i == "Outdoor Skills/Backpacking"){
 			console.log("triggered");
-			j = $("#session_C_id option:selected").val(); 
+			j = $("#session_C_id option:selected").val();
 			console.log("C was: " + j);
 			$("#hiking_note").show();
 			$("#session_C_id").val("9"); // Session C Outdoor Backpacking = 9
@@ -58,7 +58,7 @@ $('document').ready(function(){
 		console.log("selected:" + i);
 		if (i == "Outdoor Skills/Backpacking"){
 			console.log("triggered");
-			j = $("#session_B_id option:selected").val(); 
+			j = $("#session_B_id option:selected").val();
 			console.log("B was: " + j);
 			$("#hiking_note").show();
 			$("#session_B_id").val("4"); // Session B Outdoor Backpacking = 4
@@ -98,8 +98,8 @@ $('document').ready(function(){
 			<%= g.label :tshirt_id, "T-Shirt Size" %>
 			<%= g.select(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name, @girl.tshirt_id)) %>
 			</p>
-			<p class="disclaimer" id="tenderheart_disclaimer">
-					All Tenderhearts will follow a pre-set camp schedule.
+			<p class="disclaimer" id="cub_disclaimer">
+					All Cubs will follow a pre-set camp schedule.
 			</p>
 			<div id="session-choosing">
 				<p>
@@ -114,13 +114,13 @@ $('document').ready(function(){
 					<p class="disclaimer">
 						Session D Note: Outdoor Cooking requires you to have completed the Fire Building badge prior to camp or enrolled in Fire Building at camp.  If you have already earned your Outdoor Cooking MB at your current level and want to cook, please sign up for the Additional Session instead of this one.
 					</p>
-				</p> 
+				</p>
 				<p>
-					<strong>Additional Session:  Friday free choice outdoor cooking is for girls who have earned their Outdoor Cooking badge before camp, but still want to cook.  Please do not sign up for both Session D Outdoor Cooking and this one.</strong> 
+					<strong>Additional Session:  Friday free choice outdoor cooking is for girls who have earned their Outdoor Cooking badge before camp, but still want to cook.  Please do not sign up for both Session D Outdoor Cooking and this one.</strong>
 					<%= g.select :cooking_session, options_for_select(["None", "Session B", "Session C"], @girl.cooking_session ||= "None") %>
 				</p>
 
-				<%= g.label "Is this scout participating in the High Ropes course (Pi/Pa only)?", class:"text-capitalize" %>
+				<%= g.label "Is this scout participating in the High Ropes course?", class:"text-capitalize" %>
 				<%= g.check_box :high_ropes %><br>
 				<p class="disclaimer">An additional $15 registration fee will apply for the High Ropes course.</p>
 			</div>
