@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227172024) do
+ActiveRecord::Schema.define(version: 20160101052743) do
 
   create_table "adults", force: true do |t|
     t.string   "first_name"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150227172024) do
     t.integer  "slot_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "level_id"
   end
 
   create_table "slots", force: true do |t|

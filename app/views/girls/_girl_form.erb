@@ -2,13 +2,13 @@
 
 $('document').ready(function(){
 
-	$("#cub_disclaimer").hide();
+	$("#tenderheart_disclaimer").hide();
 	$("#hiking_note").hide();
 
 	i = $("#girl_level_id option:selected").text();
-	if (i == "Cub"){
+	if (i == "Tenderheart"){
 		$("#session-choosing").hide();
-		$("#cub_disclaimer").show();
+		$("#tenderheart_disclaimer").show();
 	}
 
 	i = $("#session_B_id option:selected").text();
@@ -19,12 +19,12 @@ $('document').ready(function(){
 
 	$("#girl_level_id").change(function(){
 		i = $("#girl_level_id option:selected").text();
-		if (i != "Cub"){
-			$("#cub_disclaimer").hide();
+		if (i != "Tenderheart"){
+			$("#tenderheart_disclaimer").hide();
 			$("#session-choosing").slideDown();
 		}
 		else{
-			$("#cub_disclaimer").show();
+			$("#tenderheart_disclaimer").show();
 			$("#session-choosing").slideUp();
 		}
 	});
@@ -67,6 +67,13 @@ $('document').ready(function(){
 	});
 });
 
+function validateCheckbox()
+{
+    if( $('#girl_high_ropes').is(':checked') == false){
+      alert("You must acknowledge that you are signing up to pay camp registration for this girl in full, and that no refunds can be given for camp registration.");
+			return false;
+    }
+}
 </script>
 <div class="row">
 	<div class="col-md-7 col-md-offset-1">
@@ -98,8 +105,8 @@ $('document').ready(function(){
 			<%= g.label :tshirt_id, "T-Shirt Size" %>
 			<%= g.select(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name, @girl.tshirt_id)) %>
 			</p>
-			<p class="disclaimer" id="cub_disclaimer">
-					All Cubs will follow a pre-set camp schedule.
+			<p class="disclaimer" id="tenderheart_disclaimer">
+					All Tenderhearts will follow a pre-set camp schedule.
 			</p>
 			<div id="session-choosing">
 				<p>
@@ -111,21 +118,14 @@ $('document').ready(function(){
 					<%= select_tag(:session_C_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"C")), :id, :name, @girl.session_C_id)) %><span id="hiking_note" class="disclaimer">   (Outdoor Skills/Backpacking lasts through both Sessions B and C.)</span><br />
 					<%= g.label :session_D_id, "Session D (Afternoon):" %>
 					<%= select_tag(:session_D_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"D")), :id, :name, @girl.session_D_id)) %><br />
-					<p class="disclaimer">
-						Session D Note: Outdoor Cooking requires you to have completed the Fire Building badge prior to camp or enrolled in Fire Building at camp.  If you have already earned your Outdoor Cooking MB at your current level and want to cook, please sign up for the Additional Session instead of this one.
-					</p>
 				</p>
-				<p>
-					<strong>Additional Session:  Friday free choice outdoor cooking is for girls who have earned their Outdoor Cooking badge before camp, but still want to cook.  Please do not sign up for both Session D Outdoor Cooking and this one.</strong>
-					<%= g.select :cooking_session, options_for_select(["None", "Session B", "Session C"], @girl.cooking_session ||= "None") %>
-				</p>
-
-				<%= g.label "Is this scout participating in the High Ropes course?", class:"text-capitalize" %>
-				<%= g.check_box :high_ropes %><br>
-				<p class="disclaimer">An additional $15 registration fee will apply for the High Ropes course.</p>
+				<strong>
+					<%= g.label :high_ropes, "I acknowledge that I am signing up to pay camp registration for this girl in full, and that no refunds can be given for camp registration." %>
+					<%= g.check_box :high_ropes %><br>
+				</strong>
 			</div>
 			<p>
-				<%= g.submit "Save Registration", class: "btn btn-success" %>
+				<%= g.submit "Save Registration", onclick: "validateCheckbox();", class: "btn btn-success" %>
 				<%= link_to "Cancel", root_path, class: "btn btn-warning" %>
 			</p>
 		<% end %>

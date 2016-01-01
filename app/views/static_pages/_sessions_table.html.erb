@@ -1,0 +1,25 @@
+<h5>Session A</h5>
+<% slot_a_sessions = Session.where(slot:Slot.where(name:"A").first).all %>
+<% slot_a_sessions.each { |x| %>
+	<em><%= "#{x.name} (#{x.level.name})" %></em>
+		<table class="table table-striped table-bordered">
+		<tr>
+			<% ["Girl", "Level", "Troop"].each { |caption| %>
+			<th><%= caption.to_s %>
+			<% } %>
+		</tr>
+		<% Girl.where(session_A: x).each { |x| %>
+		<tr>
+			<td>
+				<%= "#{x.first_name} #{x.last_name}" %>
+			</td>
+			<td>
+				<%= "#{x.level.name}" %>
+			</td>
+			<td>
+				<%= "#{x.troopnumber}" %>
+			</td>
+		</tr>
+<% } %>
+</table>
+	<% } %>

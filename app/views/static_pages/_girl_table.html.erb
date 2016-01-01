@@ -1,7 +1,7 @@
 <table class="table table-striped table-bordered">
 <tr>
 	<% ["Girl", "Level", "Troop", "DOB", "Grade This Fall", "Parent's Cell", "Other Cell", "Dietary Restrictions",
-		"Gluten Restriction", "Medications", "T-Shirt Size", "Schedule", "High Ropes"].each { |caption| %>
+		"Gluten Restriction", "Medications", "T-Shirt Size", "Schedule"].each { |caption| %>
 	<th><%= caption.to_s %>
 	<% } %>
 </tr>
@@ -46,8 +46,8 @@
 		<%= "#{x.tshirt.nil? ? '?' : x.tshirt.name}"%>
 	</td>
 	<td>
-		<% if x.level == Level.find_by(name:"Cub") %>
-			<strong>Cub Activities Schedule</strong>
+		<% if x.level == Level.find_by(name:"Tenderheart") %>
+			<strong>Tenderheart Activities Schedule</strong>
 		<% else %>
 			<%= "A: "%><strong><%= "#{x.session_A.nil? ? 'No choice' : x.session_A.name}" %></strong><br />
 			<% if !x.session_B.nil? && x.session_B.name == "Outdoor Skills/Backpacking" %>
@@ -60,13 +60,7 @@
 			<%= "C: "%><strong><%= "#{x.session_C.nil? ? 'No choice' : x.session_C.name}" %></strong><br />
 			<% end %>
 			<%= "D: "%><strong><%= "#{x.session_D.nil? ? 'No choice' : x.session_D.name}" %></strong><br />
-			<% unless x.cooking_session == "None" %>
-				<strong><%= "Friday Outdoor Cooking: #{x.cooking_session}" %></strong><br/>
-			<% end %>
 		<% end %>
-	</td>
-	<td>
-		<%= "#{x.high_ropes ? "Yes" : "No"}" %>
 	</td>
 	<% if !admin_display %>
 		<td>
