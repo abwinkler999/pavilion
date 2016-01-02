@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160101052743) do
+ActiveRecord::Schema.define(version: 20160102025628) do
 
   create_table "adults", force: true do |t|
     t.string   "first_name"
@@ -47,10 +47,6 @@ ActiveRecord::Schema.define(version: 20160101052743) do
     t.string   "othercell"
     t.string   "troopnumber"
     t.integer  "tshirt_id"
-    t.integer  "session_A_id"
-    t.integer  "session_B_id"
-    t.integer  "session_C_id"
-    t.integer  "session_D_id"
     t.string   "cooking_session"
     t.boolean  "high_ropes"
   end

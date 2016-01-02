@@ -49,17 +49,10 @@
 		<% if x.level == Level.find_by(name:"Tenderheart") %>
 			<strong>Tenderheart Activities Schedule</strong>
 		<% else %>
-			<%= "A: "%><strong><%= "#{x.session_A.nil? ? 'No choice' : x.session_A.name}" %></strong><br />
-			<% if !x.session_B.nil? && x.session_B.name == "Outdoor Skills/Backpacking" %>
-			<%= "B and C:" %>
-			<% else %>
-			<%= "B:" %>
-			<% end %>
-			<strong><%= "#{x.session_B.nil? ? 'No choice' : x.session_B.name}" %></strong><br />
-			<% unless x.session_C.nil? %>
-			<%= "C: "%><strong><%= "#{x.session_C.nil? ? 'No choice' : x.session_C.name}" %></strong><br />
-			<% end %>
-			<%= "D: "%><strong><%= "#{x.session_D.nil? ? 'No choice' : x.session_D.name}" %></strong><br />
+			<%= "A: "%><strong><%= what_is_in_slot("A", x) %></strong>
+			<%= "B: "%><strong><%= what_is_in_slot("B", x) %></strong>
+			<%= "C: "%><strong><%= what_is_in_slot("C", x) %></strong>
+			<%= "D: "%><strong><%= what_is_in_slot("D", x) %></strong>
 		<% end %>
 	</td>
 	<% if !admin_display %>

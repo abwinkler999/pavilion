@@ -100,5 +100,5 @@ Adult.find_or_create_by(first_name: "Selina", last_name: "Kyle", address: "89 Ca
 
 SomeParent = User.last
 Girl.find_or_create_by(first_name: "Meg", last_name: "March", dob: "01/19/2007", level: Tenderheart, dietary: "none", fallgrade: "4", parentcell: "614-555-1020", troopnumber: "OH3030", tshirt: GirlMedium)
-Girl.find_or_create_by(first_name: "Anne", last_name: "Shirley", dob: "01/19/2006", level: Explorer, dietary: "none", fallgrade: "5", parentcell: "614-555-1011", troopnumber: "OH3030", tshirt: GirlMedium, session_A: ASessions.where(level: Explorer).last, session_B: BSessions.where(level:Explorer).first, session_C: CSessions.where(level:Explorer).second, session_D: DSessions.where(level:Explorer).last)
-Girl.find_or_create_by(first_name: "Marianne", last_name: "Dashwood", dob: "01/19/2009", level: PiPa, dietary: "none", no_gluten:true, fallgrade: "3", parentcell: "614-565-9019", troopnumber: "OH3030", tshirt: GirlMedium, session_A: ASessions.where(level: PiPa).first, session_B: BSessions.where(level:PiPa).second, session_C: CSessions.where(level:PiPa).last, session_D: DSessions.where(level:PiPa).first)
+Girl.find_or_create_by(first_name: "Anne", last_name: "Shirley", dob: "01/19/2006", level: Explorer, dietary: "none", fallgrade: "5", parentcell: "614-555-1011", troopnumber: "OH3030", tshirt: GirlMedium)
+Girl.find_or_create_by(first_name: "Marianne", last_name: "Dashwood", dob: "01/19/2009", level: PiPa, dietary: "none", no_gluten:true, fallgrade: "3", parentcell: "614-565-9019", troopnumber: "OH3030", tshirt: GirlMedium)
