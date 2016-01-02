@@ -6,6 +6,7 @@ $('document').ready(function(){
 	$("#hiking_note").hide();
 
 	i = $("#girl_level_id option:selected").text();
+	<% working_level = >%
 	if (i == "Tenderheart"){
 		$("#session-choosing").hide();
 		$("#tenderheart_disclaimer").show();
@@ -110,14 +111,15 @@ function validateCheckbox()
 			</p>
 			<div id="session-choosing">
 				<p>
+				<% // something about observe_field %>
 					<%= g.label :session_A_id, "Session A (Morning):" %>
-					<%= select_tag(:session_A_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"A")), :id, :name, @girl.session_A_id)) %><br/>
+					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "A"), :id, :name)) %><br/>
 					<%= g.label :session_B_id, "Session B (Morning):" %>
-					<%= select_tag(:session_B_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"B")), :id, :name, @girl.session_B_id)) %><br />
+					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "B"), :id, :name)) %><br/>
 					<%= g.label :session_C_id, "Session C (Morning):" %>
-					<%= select_tag(:session_C_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"C")), :id, :name, @girl.session_C_id)) %><span id="hiking_note" class="disclaimer">   (Outdoor Skills/Backpacking lasts through both Sessions B and C.)</span><br />
+					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "C"), :id, :name)) %><br/>
 					<%= g.label :session_D_id, "Session D (Afternoon):" %>
-					<%= select_tag(:session_D_id, options_from_collection_for_select(Session.where(slot:Slot.find_by(name:"D")), :id, :name, @girl.session_D_id)) %><br />
+					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "D"), :id, :name)) %><br/>
 				</p>
 				<strong>
 					<%= g.label :high_ropes, "I acknowledge that I am signing up to pay camp registration for this girl in full, and that no refunds can be given for camp registration." %>

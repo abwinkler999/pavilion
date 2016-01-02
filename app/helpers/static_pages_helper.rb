@@ -24,6 +24,11 @@ module StaticPagesHelper
 		sessions
 	end
 
+	def appropriate_sessions_for_level(level, slot)
+		binding.pry
+		Slot.where(name:slot).first.sessions.where(level:level).all
+	end
+
 	def what_is_in_slot(slot, girl)
 		girl.sessions.each { |x|
 			if x.slot.name == slot
