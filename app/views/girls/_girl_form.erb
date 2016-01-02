@@ -6,7 +6,7 @@ $('document').ready(function(){
 	$("#hiking_note").hide();
 
 	i = $("#girl_level_id option:selected").text();
-	<% working_level = >%
+
 	if (i == "Tenderheart"){
 		$("#session-choosing").hide();
 		$("#tenderheart_disclaimer").show();
@@ -111,14 +111,13 @@ function validateCheckbox()
 			</p>
 			<div id="session-choosing">
 				<p>
-				<% // something about observe_field %>
-					<%= g.label :session_A_id, "Session A (Morning):" %>
+					<%= g.label :session_A_id, "Session A:" %>
 					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "A"), :id, :name)) %><br/>
-					<%= g.label :session_B_id, "Session B (Morning):" %>
+					<%= g.label :session_B_id, "Session B:" %>
 					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "B"), :id, :name)) %><br/>
-					<%= g.label :session_C_id, "Session C (Morning):" %>
+					<%= g.label :session_C_id, "Session C:" %>
 					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "C"), :id, :name)) %><br/>
-					<%= g.label :session_D_id, "Session D (Afternoon):" %>
+					<%= g.label :session_D_id, "Session D:" %>
 					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "D"), :id, :name)) %><br/>
 				</p>
 				<strong>

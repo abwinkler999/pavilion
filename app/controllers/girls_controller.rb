@@ -6,6 +6,7 @@ class GirlsController < ApplicationController
 	def create
 		@girl = Girl.new(girl_params)
 		@girl.user = current_user
+		# so this should individually insert sessions instead
 		@girl.session_A = Session.find_by(id:params[:session_A_id])
 		@girl.session_B = Session.find_by(id:params[:session_B_id])
 		@girl.session_C = Session.find_by(id:params[:session_C_id])
@@ -25,6 +26,7 @@ class GirlsController < ApplicationController
 	def update
 		@girl = Girl.find(params[:id])
 		verify_owner(@girl)
+		# copy this code from whatever I do with create, above
 		@girl.session_A = Session.find_by(id:params[:session_A_id])
 		@girl.session_B = Session.find_by(id:params[:session_B_id])
 		@girl.session_C = Session.find_by(id:params[:session_C_id])

@@ -5,6 +5,6 @@
 <% @girls.each do |girl| %>
 <%= CSV.generate_line([girl.last_name, girl.first_name, format_for_csv(girl.dob), girl.level.name, girl.troopnumber, format_for_csv(girl.dietary),
 	yes_or_no(girl.no_gluten), yes_or_no(girl.medications), format_for_csv(girl.fallgrade), format_for_csv(girl.parentcell),
-	 format_for_csv(girl.othercell), format_for_csv(girl.troopnumber), girl.tshirt.name, sessions_list(girl),
+	 format_for_csv(girl.othercell), format_for_csv(girl.troopnumber), girl.tshirt.name, session_names_for_particular_girl(girl)],
 	encoding:"utf-8") %>
 <% end %>

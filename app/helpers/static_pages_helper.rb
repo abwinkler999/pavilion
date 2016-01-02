@@ -12,20 +12,29 @@ module StaticPagesHelper
 		input ? "Y" : "N"
 	end
 
-	def sessions_list(girl)
-		sessions = Array.new
+	def sessions_for_particular_girl(girl)
 		if girl.level.name == "Tenderheart"
-			sessions = ["Tenderheart", "Tenderheart", "Tenderheart", "Tenderheart"]
-		else
-			girl.sessions.each{ |x|
-				sessions << format_for_csv(x.name)
-			}
+			return nil
 		end
-		sessions
+		girl.sessions.each{ |x|
+			sessions << x
+		}
+	end
+
+	def session_names_for_particular_girl(girl)
+		girl.sessions.map {|x| format_for_csv(x.name)}
+	end
+
+	def girl_session_for_particular_slot(girl, slot)
+		girl.sessions.each{ |x|
+			if x.slot == slot
+				return x
+			end
+		}
+		return nil
 	end
 
 	def appropriate_sessions_for_level(level, slot)
-		binding.pry
 		Slot.where(name:slot).first.sessions.where(level:level).all
 	end
 
