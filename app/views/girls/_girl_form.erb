@@ -96,6 +96,8 @@ function validateCheckbox()
 			<%= g.check_box :no_gluten %><br>
 			<%= g.label :medications, "Will girl be checking in medications with nurse on arrival?" %>
 			<%= g.check_box :medications %><br>
+			<%= g.label :horseback, "Will this girl be participating in horseback riding (additional $35.00 fee will apply)?" %>
+			<%= g.check_box :horseback %><br>
 			<%= g.label :parentcell, "Parent's Phone Number" %><br />
 			<%= g.text_field :parentcell %><br>
 			<%= g.label :othercell, "Alternate Phone Number" %><br />
@@ -122,6 +124,7 @@ function validateCheckbox()
 						All Tenderhearts will follow a pre-set camp schedule.
 				</p>
 				<% end %>
+
 				<strong>
 					<%= g.label :high_ropes, "I acknowledge that I am signing up to pay camp registration for this girl in full, and that no refunds can be given for camp registration:" %>
 					<%= g.check_box :high_ropes %><br>

@@ -30,6 +30,11 @@ PiPa = Level.where(name:"Pioneer/Patriot").first
 Restriction.find_or_create_by(name: "All")
 Restriction.find_or_create_by(name: "Pioneer/Patriot Only")
 
+Session.find_or_create_by(name: "Tenderheart Activities", slot: SlotA, level: Tenderheart)
+Session.find_or_create_by(name: "Tenderheart Activities", slot: SlotB, level: Tenderheart)
+Session.find_or_create_by(name: "Tenderheart Activities", slot: SlotC, level: Tenderheart)
+Session.find_or_create_by(name: "Tenderheart Activities", slot: SlotD, level: Tenderheart)
+
 Session.find_or_create_by(name: "Outdoor Skills", slot: SlotA, level: Explorer )
 Session.find_or_create_by(name: "Outdoor Skills", slot: SlotB, level: PiPa )
 Session.find_or_create_by(name: "Outdoor Skills", slot: SlotC, level: PiPa )
