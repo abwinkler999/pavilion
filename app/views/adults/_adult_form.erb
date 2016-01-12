@@ -25,6 +25,10 @@
 			<%= g.check_box :first_aid %><br>
 			<%= g.label :tshirt_id, "T-Shirt Size" %>
 			<%= g.select(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name, @adult.tshirt_id)) %>
+			<p id="help_out_box">
+				<%= g.label :session_A_id, "Every adult is requested to help out with one badge activity.  What will you be able to help with?" %>
+			<%= select_tag(:session_A_id, options_from_collection_for_select(adult_sessions, :id, :name)) %><br/>
+			</p>
 			<p>
 				<%= g.submit "Save Registration", class: "btn btn-success" %>
 				<%= link_to "Cancel", root_path, class: "btn btn-warning" %>

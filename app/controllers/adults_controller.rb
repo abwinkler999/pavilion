@@ -6,12 +6,13 @@ class AdultsController < ApplicationController
 	def create
 		@adult = Adult.new(adult_params)
 		@adult.user = current_user
+		@adult.sessions << Session.find_by(id:params[:session_A_id])
 	    if @adult.save
 	      redirect_to :root
 	    else
 	      render 'new'
 		end
-    end
+  end
 
 	def edit
 		@adult = Adult.find(params[:id])
@@ -38,6 +39,6 @@ class AdultsController < ApplicationController
 	private
 
 	def adult_params
-		params.require(:adult).permit(:first_name, :last_name, :address, :phone, :troopnumber, :tshirt_id, :cpr, :first_aid, :halfweek, :dietary, :no_gluten, :troopcontact)
+		params.require(:adult).permit(:first_name, :last_name, :address, :phone, :troopnumber, :tshirt_id, :cpr, :first_aid, :halfweek, :dietary, :no_gluten, :troopcontact, :session_A)
 	end
 end

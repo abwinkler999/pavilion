@@ -39,6 +39,10 @@ module StaticPagesHelper
 		possibles.keep_if { |x| x.girls.count < 10 }
 	end
 
+	def adult_sessions()
+		Session.all
+	end
+
 	def session_table_name(session)
 		return_string = "#{session.name} (#{session.level.name})"
 		if session.girls.count > 9
