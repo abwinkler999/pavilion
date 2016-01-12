@@ -2,7 +2,7 @@
 	<h5>Time Slot <%= this_slot %></h5>
 	<% sessions = Session.where(slot:Slot.where(name:this_slot).first).all %>
 	<% sessions.each { |session| %>
-		<em><%= "#{session.name} (#{session.level.name})" %></em>
+		<em><%= session_table_name(session) %></em>
 		<table class="table table-striped table-bordered">
 			<tr>
 				<% ["Girl", "Level", "Troop"].each { |caption| %>

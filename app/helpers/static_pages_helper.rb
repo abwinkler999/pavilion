@@ -39,6 +39,14 @@ module StaticPagesHelper
 		possibles.keep_if { |x| x.girls.count < 10 }
 	end
 
+	def session_table_name(session)
+		return_string = "#{session.name} (#{session.level.name})"
+		if session.girls.count > 9
+			return_string << " -- SESSION FULL"
+		end
+		return_string
+	end
+
 	def what_is_in_slot(slot, girl)
 		girl.sessions.each { |x|
 			if x.slot.name == slot
