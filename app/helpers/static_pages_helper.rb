@@ -35,7 +35,8 @@ module StaticPagesHelper
 	end
 
 	def appropriate_sessions_for_level(level, slot)
-		Slot.where(name:slot).first.sessions.where(level:level).all
+		possibles = Slot.where(name:slot).first.sessions.where(level:level).all.to_a
+		possibles.keep_if { |x| x.girls.count < 10 }
 	end
 
 	def what_is_in_slot(slot, girl)

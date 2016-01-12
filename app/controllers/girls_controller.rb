@@ -1,22 +1,27 @@
 class GirlsController < ApplicationController
 	def new
 		@girl = Girl.new
+		@girl.level = Level.where(name:params[:level]).first
 	end
 
 	def create
 		@girl = Girl.new(girl_params)
 		@girl.user = current_user
-		# so this should individually insert sessions instead
-		@girl.session_A = Session.find_by(id:params[:session_A_id])
-		@girl.session_B = Session.find_by(id:params[:session_B_id])
-		@girl.session_C = Session.find_by(id:params[:session_C_id])
-		@girl.session_D = Session.find_by(id:params[:session_D_id])
-	    if @girl.save
-	      redirect_to :root
-	    else
-	      render 'new'
+		@girl.level = Level.where(id: params[:level].to_i).first
+
+		if @girl.level != Level.where(name:"Tenderheart").first
+			@girl.sessions << Session.find_by(id:params[:session_A_id])
+			@girl.sessions << Session.find_by(id:params[:session_B_id])
+			@girl.sessions << Session.find_by(id:params[:session_C_id])
+			@girl.sessions << Session.find_by(id:params[:session_D_id])
 		end
-    end
+
+    if @girl.save
+      redirect_to :root
+    else
+      render 'new'
+		end
+  end
 
 	def edit
 		@girl = Girl.find(params[:id])

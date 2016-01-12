@@ -5,7 +5,8 @@ $('document').ready(function(){
 	$("#tenderheart_disclaimer").hide();
 	$("#hiking_note").hide();
 
-	i = $("#girl_level_id option:selected").text();
+	//i = $("#girl_level_id option:selected").text();
+	i = <% @girl.level.name %>
 
 	if (i == "Tenderheart"){
 		$("#session-choosing").hide();
@@ -101,32 +102,34 @@ function validateCheckbox()
 			<%= g.text_field :othercell %><br>
 			<br />
 			<p>
-			<%= g.label :level_id, "Level" %>
-			<%= g.select(:level_id, options_from_collection_for_select(Level.all, :id, :name, @girl.level_id)) %>
 			<%= g.label :tshirt_id, "T-Shirt Size" %>
 			<%= g.select(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name, @girl.tshirt_id)) %>
 			</p>
-			<p class="disclaimer" id="tenderheart_disclaimer">
-					All Tenderhearts will follow a pre-set camp schedule.
-			</p>
+			<% if @girl.level.name != "Tenderheart" %>
 			<div id="session-choosing">
 				<p>
 					<%= g.label :session_A_id, "Session A:" %>
 					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "A"), :id, :name)) %><br/>
 					<%= g.label :session_B_id, "Session B:" %>
-					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "B"), :id, :name)) %><br/>
+					<%= select_tag(:session_B_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "B"), :id, :name)) %><br/>
 					<%= g.label :session_C_id, "Session C:" %>
-					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "C"), :id, :name)) %><br/>
+					<%= select_tag(:session_C_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "C"), :id, :name)) %><br/>
 					<%= g.label :session_D_id, "Session D:" %>
-					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "D"), :id, :name)) %><br/>
+					<%= select_tag(:session_D_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "D"), :id, :name)) %><br/>
 				</p>
+				<% else %>
+				<p class="disclaimer" id="tenderheart_disclaimer">
+						All Tenderhearts will follow a pre-set camp schedule.
+				</p>
+				<% end %>
 				<strong>
-					<%= g.label :high_ropes, "I acknowledge that I am signing up to pay camp registration for this girl in full, and that no refunds can be given for camp registration." %>
+					<%= g.label :high_ropes, "I acknowledge that I am signing up to pay camp registration for this girl in full, and that no refunds can be given for camp registration:" %>
 					<%= g.check_box :high_ropes %><br>
 				</strong>
 			</div>
 			<p>
-				<%= g.submit "Save Registration", onclick: "validateCheckbox();", class: "btn btn-success" %>
+				<%= hidden_field_tag "level", @girl.level.id %>
+				<%= g.submit "Save Registration", onclick: "validateCheckbox();", class: "btn btn-success", params: {zippy: "Pinhead"} %>
 				<%= link_to "Cancel", root_path, class: "btn btn-warning" %>
 			</p>
 		<% end %>
