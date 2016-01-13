@@ -40,7 +40,15 @@ module StaticPagesHelper
 	end
 
 	def adult_sessions()
-		Session.all
+		sessions_array = Session.all.collect { |x| [ x.name, x.id] }
+		returned_array = Array.new
+		sessions_array.each { |x|
+			if returned_array.assoc(x[0]) == nil
+				returned_array << x
+			end
+		}
+		returned_array.collect!{ |x| x[1] }
+		Session.find(returned_array)
 	end
 
 	def session_table_name(session)

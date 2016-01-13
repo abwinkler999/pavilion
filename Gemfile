@@ -38,7 +38,7 @@ group :production do
 	gem 'rails_12factor'
 end
 
-ruby '2.0.0'
+ruby '2.1.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -50,4 +50,3 @@ ruby '2.0.0'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

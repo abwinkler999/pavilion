@@ -1,6 +1,6 @@
 <div class="row main_banner">
 	<div class="col-md-10">
-		<h1 class="main_banner_text", id="summer_camp_marengo">Greater Than Rubies Summer Camp 2016</h1>
+		<h1 class="main_banner_text", id="summer_camp_marengo"><%= link_to "Greater Than Rubies Summer Camp 2016", root_path, style: 'color:#FFFFFF;' %></h1>
 	</div>
 	<div class="col-md-2">
 		<div class="login_signup">
@@ -11,6 +11,7 @@
 				<%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn btn-default login-buttons" %>
 			<% else %>
 				<%= link_to "Login", new_user_session_path, class: "btn btn-default login-buttons" %>
+				<%= link_to "Sign Up!", new_user_registration_path, class: "btn btn-default login-buttons" %>
 			<% end %>
 		</div>
 	</div>

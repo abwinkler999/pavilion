@@ -1,7 +1,7 @@
 <div class="adultform">
 	<h3>Edit Adult Registration</h3>
 	<% if @adult.errors.any? %>
-		<h3>Errors:</h3>
+		<h4>Sorry, but there were some errors in the form:</h4>
 		<ul>
 		<% @adult.errors.full_messages.each do |msg| %>
 			<li><%= msg %></li>
