@@ -6,17 +6,24 @@
 		<% the_adult = current_user.adult %>
 		<h3>You are Attending Greater Than Rubies Summer Camp 2016!</h3>
 		<div id="attendeeinfo" class="well">
-			<h3><%=	"#{the_adult.first_name} #{the_adult.last_name}" %></h3>
-			<%= "Troop: #{the_adult.troopnumber}" %><br />
-			<%= "(Troop Contact: #{the_adult.troopcontact})" %><br />
-			<%= "Phone: #{the_adult.phone}" %><br />
-			<%= "Mailing address: #{the_adult.address}" %><br />
-			<%= "Dietary restrictions: #{the_adult.dietary}" %><br />
-			<%= "Gluten intolerance?  #{the_adult.no_gluten? ? "Y" : "N"}" %><br />
-			<%= "Staying half the week?  #{the_adult.halfweek? ? "Y" : "N"}" %><br />
-			<%= "CPR trained?  #{the_adult.cpr? ? "Y" : "N"}" %><br />
-			<%= "First aid trained?  #{the_adult.cpr? ? "Y" : "N"}" %><br />
-		<%= "T-shirt Size: #{the_adult.tshirt.nil? ? '?' : the_adult.tshirt.name}" %><br />
+			<h3><strong><%=	"#{the_adult.first_name} #{the_adult.last_name}" %></strong></h3>
+			<div class="row">
+				<div class="col-md-6">
+					<strong><%= "Troop:" %></strong>  <%= " #{the_adult.troopnumber}" %><br />
+					<strong><%= "Troop Contact:" %></strong>  <%= " #{the_adult.troopcontact}" %><br />
+					<strong><%= "Phone:" %></strong>  <%= " #{the_adult.phone}" %><br />
+					<strong><%= "Mailing address:" %></strong>  <%= " #{the_adult.address}" %> <br />
+					<strong><%= "Dietary restrictions:" %></strong>  <%= " #{the_adult.dietary}" %><br />
+				</div>
+				<div class="col-md-6">
+					<strong><%= "Gluten intolerance?" %></strong>  <%= "#{the_adult.no_gluten? ? "Y" : "N"}" %><br />
+					<strong><%= "Staying half the week?" %></strong>  <%= "#{the_adult.halfweek? ? "Y" : "N"}" %><br />
+					<strong><%= "CPR trained?" %></strong>  <%= "  #{the_adult.cpr? ? "Y" : "N"}" %><br />
+					<strong><%= "First aid trained?" %></strong>  <%= "  #{the_adult.cpr? ? "Y" : "N"}" %><br />
+					<strong><%= "T-shirt size:" %></strong>  <%= " #{the_adult.tshirt.nil? ? '?' : the_adult.tshirt.name}" %><br />
+					<strong><%= "Helping With:" %></strong>  <%= " #{the_adult.sessions.first.name}" %><br />
+				</div>
+			</div>
 		</div>
 		<p>
 		<%= link_to "Cancel Adult Registration", adult_path(the_adult), method: :delete, data: { confirm: "Are you certain you want to cancel your registration?" }, class: "btn btn-danger" %>
