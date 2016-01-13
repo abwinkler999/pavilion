@@ -52,7 +52,7 @@ module StaticPagesHelper
 	end
 
 	def session_table_name(session)
-		return_string = "#{session.name} (#{session.level.name})"
+		return_string = "#{session.name} (#{session.level.name}) -- #{pluralize(session.girls.count, "Girl")}" 
 		if session.girls.count > 9
 			return_string << " -- SESSION FULL"
 		end
