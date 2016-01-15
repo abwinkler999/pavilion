@@ -13,6 +13,13 @@
 </div>
 <% else %>
 <div id="please_sign_in">
-	<h3>Please create an account to register adult and girls for Greater Than Rubies Summer Camp 2016.</h3>
+	<div class="row">
+		<div class="col-md-9">
+			<h3>Get started registering for Greater Than Rubies Summer Camp 2016:</h3>
+		</div>
+		<div class="col-md-3">
+			<%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-lg login-buttons" %>
+		</div>
+	</div>
 </div>
 <% end %>

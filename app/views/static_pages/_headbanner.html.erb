@@ -10,8 +10,7 @@
 				<% end %>
 				<%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn btn-default login-buttons" %>
 			<% else %>
-				<%= link_to "Login", new_user_session_path, class: "btn btn-default login-buttons" %>
-				<%= link_to "Sign Up!", new_user_registration_path, class: "btn btn-default login-buttons" %>
+				<%= link_to "Log In to My Account", new_user_session_path, class: "btn btn-success login-buttons" %>
 			<% end %>
 		</div>
 	</div>
@@ -24,7 +23,7 @@
 	<div class="col-md-2">
 	<% if user_signed_in? %>
 		<span class="not-as-tiny-text welcome-user"><%= "Welcome #{current_user.email}" %></span>
-		<%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-default rightshift-button" %>
+		<%= link_to "Change Password", edit_user_registration_path, class: "btn btn-default rightshift-button" %>
 	<% end %>
 	</div>
 </div>
