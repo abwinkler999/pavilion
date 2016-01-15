@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160115002714) do
     t.integer  "tshirt_id"
     t.string   "cooking_session"
     t.boolean  "high_ropes"
-    t.boolean  "horseback"
+    t.boolean  "horseback",       default: false
   end
 
   create_table "girls_sessions", id: false, force: true do |t|

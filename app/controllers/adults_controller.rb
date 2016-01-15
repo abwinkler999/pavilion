@@ -39,6 +39,6 @@ class AdultsController < ApplicationController
 	private
 
 	def adult_params
-		params.require(:adult).permit(:first_name, :last_name, :address, :phone, :troopnumber, :tshirt_id, :cpr, :first_aid, :halfweek, :dietary, :no_gluten, :troopcontact, :session_A)
+		params.require(:adult).permit(:first_name, :last_name, :address, :phone, :troopnumber, :tshirt_id, :cpr, :first_aid, :halfweek, :dietary, :no_gluten, :troopcontact, :troopcontact_email, :session_A)
 	end
 end
