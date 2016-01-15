@@ -9,14 +9,14 @@
 			<h3><strong><%=	"#{the_adult.first_name} #{the_adult.last_name}" %></strong></h3>
 			<div class="row">
 				<div class="col-md-6">
-					<strong><%= "Troop:" %></strong>  <%= " #{the_adult.troopnumber}" %><br />
-					<strong><%= "Troop Contact:" %></strong>  <%= " #{the_adult.troopcontact}" %><br />
 					<strong><%= "Phone:" %></strong>  <%= " #{the_adult.phone}" %><br />
 					<strong><%= "Mailing address:" %></strong>  <%= " #{the_adult.address}" %> <br />
+					<strong><%= "Troop:" %></strong>  <%= " #{the_adult.troopnumber}" %><br />
+					<strong><%= "Troop Coordinator's Name:" %></strong>  <%= " #{the_adult.troopcontact}" %><br />
+					<strong><%= "Troop Coordinator's Email:" %></strong>  <%= " #{the_adult.troopcontact_email}" %><br />
 					<strong><%= "Dietary restrictions:" %></strong>  <%= " #{the_adult.dietary}" %><br />
 				</div>
 				<div class="col-md-6">
-					<strong><%= "Gluten intolerance?" %></strong>  <%= "#{the_adult.no_gluten? ? "Y" : "N"}" %><br />
 					<strong><%= "Staying half the week?" %></strong>  <%= "#{the_adult.halfweek? ? "Y" : "N"}" %><br />
 					<strong><%= "CPR trained?" %></strong>  <%= "  #{the_adult.cpr? ? "Y" : "N"}" %><br />
 					<strong><%= "First aid trained?" %></strong>  <%= "  #{the_adult.cpr? ? "Y" : "N"}" %><br />

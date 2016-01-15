@@ -83,7 +83,7 @@ function validateCheckbox()
 			<%= g.label :first_name %>:
 			<%= g.text_field :first_name, placeholder: "Jane" %>
 			<%= g.label :last_name %>:
-			<%= g.text_field :last_name, placeholder: "Scout" %><br>
+			<%= g.text_field :last_name, placeholder: "Smith" %><br>
 			<%= g.label :troopnumber, "Troop Number (with state)" %><br />
 			<%= g.text_field :troopnumber, placeholder: "OH0001" %><br>
 			<%= g.label :dob, "Date of Birth" %><br />
@@ -92,8 +92,6 @@ function validateCheckbox()
 			<%= g.text_field :fallgrade, placeholder: "3" %><br>
 			<%= g.label :dietary, "Please list any dietary restrictions:" %><br />
 			<%= g.text_field :dietary %><br>
-			<%= g.label :no_gluten, "Gluten sensitivity?" %>
-			<%= g.check_box :no_gluten %><br>
 			<%= g.label :medications, "Will girl be checking in medications with nurse on arrival?" %>
 			<%= g.check_box :medications %><br>
 			<%= g.label :horseback, "Will this girl be participating in horseback riding (additional $35.00 fee will apply)?" %>
@@ -119,6 +117,7 @@ function validateCheckbox()
 					<%= select_tag(:session_C_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "C"), :id, :name)) %><br/>
 					<%= g.label :session_D_id, "Session D:" %>
 					<%= select_tag(:session_D_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "D"), :id, :name)) %><br/>
+					<p><h5><em>Please note that any girl signing up for Canoeing <strong>must</strong> be able to demonstrate swimming proficiency.</em></h5></p>
 				</p>
 				<% else %>
 				<p class="disclaimer" id="tenderheart_disclaimer">
