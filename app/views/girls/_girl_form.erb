@@ -81,15 +81,15 @@ function validateCheckbox()
 	<div class="col-md-7 col-md-offset-1">
 		<%= form_for @girl do |g| %>
 			<%= g.label :first_name %>:
-			<%= g.text_field :first_name %>
+			<%= g.text_field :first_name, placeholder: "Jane" %>
 			<%= g.label :last_name %>:
-			<%= g.text_field :last_name %><br>
-			<%= g.label :troopnumber, "Troop Number" %><br />
-			<%= g.text_field :troopnumber %><br>
+			<%= g.text_field :last_name, placeholder: "Scout" %><br>
+			<%= g.label :troopnumber, "Troop Number (with state)" %><br />
+			<%= g.text_field :troopnumber, placeholder: "OH0001" %><br>
 			<%= g.label :dob, "Date of Birth" %><br />
-			<%= g.text_field :dob %><br>
-			<%= g.label :fallgrade, "What school grade will girl be in fall? (Ex.: 4)" %><br />
-			<%= g.text_field :fallgrade %><br>
+			<%= g.text_field :dob, placeholder: "01/01/2008" %><br>
+			<%= g.label :fallgrade, "What school grade will girl be in fall?" %><br />
+			<%= g.text_field :fallgrade, placeholder: "3" %><br>
 			<%= g.label :dietary, "Please list any dietary restrictions:" %><br />
 			<%= g.text_field :dietary %><br>
 			<%= g.label :no_gluten, "Gluten sensitivity?" %>
@@ -99,9 +99,9 @@ function validateCheckbox()
 			<%= g.label :horseback, "Will this girl be participating in horseback riding (additional $35.00 fee will apply)?" %>
 			<%= g.check_box :horseback %><br>
 			<%= g.label :parentcell, "Parent's Phone Number" %><br />
-			<%= g.text_field :parentcell %><br>
+			<%= g.text_field :parentcell, placeholder: "(740) 555-5555" %><br>
 			<%= g.label :othercell, "Alternate Phone Number" %><br />
-			<%= g.text_field :othercell %><br>
+			<%= g.text_field :othercell, placeholder: "(740) 555-5556" %><br>
 			<br />
 			<p>
 			<%= g.label :tshirt_id, "T-Shirt Size" %>
@@ -110,6 +110,7 @@ function validateCheckbox()
 			<% if @girl.level.name != "Tenderheart" %>
 			<div id="session-choosing">
 				<p>
+					<h4>Badge Sessions</h4>
 					<%= g.label :session_A_id, "Session A:" %>
 					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "A"), :id, :name)) %><br/>
 					<%= g.label :session_B_id, "Session B:" %>

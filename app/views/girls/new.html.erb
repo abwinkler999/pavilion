@@ -1,12 +1,15 @@
 <div class="girlform">
-	<h3>Register a <%= @girl.level.name %></h3>
-	<% if @girl.errors.any? %>
-	<h3>Errors:</h3>
-	<ul>
-	<% @girl.errors.full_messages.each do |msg| %>
-	<li><%= msg %></li>
-	<% end %>
-	</ul>
-	<% end %>
+	<h3>Register a<%= @girl.level.name == "Explorer"? "n Explorer" : " #{@girl.level.name}" %></h3>
+	<div class="errorsblock">
+		<% if @girl.errors.any? %>
+			<h3>Sorry, there are some errors in your form:</h3>
+			<ul>
+				<% @girl.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+			<h3>Please recheck your session selections, as they may have been cleared.</h3>
+		<% end %>
+	</div>
 	<%= render 'girl_form' %>
 </div>
