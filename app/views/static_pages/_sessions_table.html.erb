@@ -1,7 +1,7 @@
 <% ["A","B","C","D"].each { |this_slot| %>
 	<div class="session_time_slot">
 		<h4>Time Slot <%= this_slot %></h4>
-		<% sessions = Session.where(slot:Slot.where(name:this_slot).first).all %>
+		<% sessions = non_tenderheart_sessions(this_slot) %>
 		<% sessions.each { |session| %>
 			<div class="session_table_individual">
 				<em><%= session_table_name(session) %></em>

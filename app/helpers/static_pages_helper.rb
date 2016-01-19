@@ -5,6 +5,7 @@ module StaticPagesHelper
 		end
 		input.gsub!(",", "")
 		#input.sub!("&", "&amp;")
+		input.sub!('""', "")
 		input.length == 0 ? "none" : input
 	end
 
@@ -52,7 +53,7 @@ module StaticPagesHelper
 	end
 
 	def session_table_name(session)
-		return_string = "#{session.name} (#{session.level.name}) -- #{pluralize(session.girls.count, "Girl")}" 
+		return_string = "#{session.name} (#{session.level.name}) -- #{pluralize(session.girls.count, "Girl")}"
 		if session.girls.count > 9
 			return_string << " -- SESSION FULL"
 		end
@@ -67,4 +68,9 @@ module StaticPagesHelper
 		}
 		return "No choice"
 	end
+
+	def non_tenderheart_sessions(this_slot)
+		Session.where(slot:Slot.where(name:this_slot).first).where.not(level:Level.where(name:"Tenderheart").first).all
+	end
+
 end
