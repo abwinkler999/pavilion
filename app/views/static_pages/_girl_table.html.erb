@@ -6,7 +6,7 @@
 	<% } %>
 </tr>
 <% if admin_display %>
-	<% collection_to_display = Girl.all %>
+	<% collection_to_display = Girl.all.order(:last_name) %>
 <% else %>
 	<% collection_to_display = current_user.girls %>
 <% end %>

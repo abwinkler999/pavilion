@@ -6,13 +6,13 @@
 	<th>Troop</th>
 	<th>Troop Contact</th>
 	<th>Dietary Restrictions</th>
-	<th>Gluten Restriction</th>
 	<th>CPR</th>
 	<th>First Aid</th>
 	<th>T-Shirt Size</th>
 	<th>Half Week?</th>
+	<th>Helping With</th>
 </tr>
-<% Adult.all.each { |x| %>
+<% Adult.all.order(:last_name).each { |x| %>
 <tr>
 	<td>
 		<%= "#{x.first_name} #{x.last_name}" %>
@@ -32,9 +32,6 @@
 	<td>
 		<%= "#{x.dietary}" %>
 	</td>
-		<td>
-		<%= "#{x.no_gluten ? "Yes" : "No"}" %>
-	</td>
 	<td>
 		<%= "#{x.cpr ? "Yes" : "No"}" %>
 	</td>
@@ -46,6 +43,9 @@
 	</td>
 	<td>
 		<%= "#{x.halfweek ? "Yes" : "No"}" %>
+	</td>
+	<td>
+		<%= "#{x.sessions.first.name}" %>
 	</td>
 </tr>
 <% } %>
