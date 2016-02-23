@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115002714) do
+ActiveRecord::Schema.define(version: 20160223015022) do
 
   create_table "adults", force: true do |t|
     t.string   "first_name"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20160115002714) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "level_id"
+    t.integer  "capacity",   default: 20
   end
 
   create_table "slots", force: true do |t|

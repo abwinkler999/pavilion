@@ -37,7 +37,7 @@ module StaticPagesHelper
 
 	def appropriate_sessions_for_level(level, slot)
 		possibles = Slot.where(name:slot).first.sessions.where(level:level).all.to_a
-		possibles.keep_if { |x| x.girls.count < 10 }
+		possibles.keep_if { |x| x.girls.count < x.capacity }
 	end
 
 	def adult_sessions()
@@ -54,7 +54,7 @@ module StaticPagesHelper
 
 	def session_table_name(session)
 		return_string = "#{session.name} (#{session.level.name}) -- #{pluralize(session.girls.count, "Girl")}"
-		if session.girls.count > 9
+		if session.girls.count >= session.capacity
 			return_string << " -- SESSION FULL"
 		end
 		return_string
