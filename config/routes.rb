@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'admin', to:'static_pages#admin', as: :admin
   get 'csv_girls', to:'static_pages#csv_girls', as: :csv_girls
   get 'csv_adults', to:'static_pages#csv_adults', as: :csv_adults
+  get 'csv_sessions', to:'static_pages#csv_sessions', as: :csv_sessions
   #get 'static_pages/csv'
   get 'static_pages/home'
   #get 'static_pages/admin'

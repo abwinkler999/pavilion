@@ -1,0 +1,41 @@
+<% headers = ['Last Name', 'First Name', 'DOB', 'Level', 'Troop', 'Dietary Requirements',
+	'Bringing Medications', 'Grade Fall 2015', 'Parent Cell', 'Other Cell', 'T-Shirt', 'Horseback',
+	'Session A', 'Session B', 'Session C', 'Session D'] %>
+<%= CSV.generate_line headers %>
+<% @girls.each do |girl| %>
+<%= CSV.generate_line([girl.last_name, girl.first_name, format_for_csv(girl.dob), girl.level.name, format_for_csv(girl.troopnumber.upcase), format_for_csv(girl.dietary),
+	yes_or_no(girl.medications), format_for_csv(girl.fallgrade), format_for_csv(girl.parentcell),
+	 format_for_csv(girl.othercell), girl.tshirt.name, yes_or_no(girl.horseback), session_names_for_particular_girl(girl)].flatten,
+	encoding:"utf-8") %>
+<% end %>
+
+<% ["A","B","C","D"].each { |this_slot| %>
+	<% CSV.generate_line("Slot %{this_slot}", encoding:"utf-8") %>
+<% } %>
+
+	<%= CSV.generate_line headers %>
+	<div class="session_time_slot">
+		<h4>Time Slot <%= this_slot %></h4>
+		<% sessions = non_tenderheart_sessions(this_slot) %>
+		<% sessions.each { |session| %>
+			<div class="session_table_individual">
+				<em><%= session_table_name(session) %></em>
+				<table class="table table-striped table-bordered">
+					<% session.girls.each { |y| %>
+						<tr>
+							<td>
+								<%= "#{y.first_name} #{y.last_name}" %>
+							</td>
+							<td>
+								<%= "#{y.level.name}" %>
+							</td>
+							<td>
+								<%= "#{y.troopnumber}" %>
+							</td>
+						</tr>
+					<% } %>
+				</table>
+			</div>
+		<% } %>
+	</div>
+<% } %>
