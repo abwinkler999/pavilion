@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'csv_sessions', to:'static_pages#csv_sessions', as: :csv_sessions
   #get 'static_pages/csv'
   get 'static_pages/home'
+  get 'special', to:'static_pages#special', as: :special
   #get 'static_pages/admin'
 
   get '404', :to => 'static_pages#home'

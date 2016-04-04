@@ -3,6 +3,9 @@ class StaticPagesController < ApplicationController
   def home
   end
 
+  def special
+  end
+  
   def admin
 	bounce_nonadmin
   end
@@ -39,4 +42,3 @@ def bounce_nonadmin
 		redirect_to action: "home"
 	end
 end
-
