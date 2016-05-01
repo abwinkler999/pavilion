@@ -1,7 +1,7 @@
 <% headers = ['Slot', 'Session', 'Level', 'First Name', 'Last Name', 'Troop'] %>
-<%= CSV.generate_line headers %>
+<%= CSV.generate_line(headers.flatten, encoding:"utf-8").strip %>
 <% @girls.each { |girl| %>
 	<% girl.sessions.each { |some_session| %>
-		<%= CSV.generate_line([some_session.slot.name, some_session.name, girl.level.name, girl.first_name, girl.last_name, girl.troopnumber].flatten, encoding:"utf-8") %>
+		<%= CSV.generate_line([some_session.slot.name, some_session.name, girl.level.name, girl.first_name, girl.last_name, girl.troopnumber].flatten, encoding:"utf-8").html_safe %>
 		<% } %>
 <% } %>
