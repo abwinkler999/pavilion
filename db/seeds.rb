@@ -24,64 +24,64 @@ Tenderheart = Level.where(name:"Tenderheart").first
 Explorer = Level.where(name:"Explorer").first
 PiPa = Level.where(name:"Pioneer/Patriot").first
 
-Restriction.find_or_create_by(name: "All")
-Restriction.find_or_create_by(name: "Pioneer/Patriot Only")
+#Restriction.find_or_create_by(name: "All")
+#Restriction.find_or_create_by(name: "Pioneer/Patriot Only")
 
-Session.find_or_create_by(name: "Tenderheart Activities", slot: SlotA, level: Tenderheart)
-Session.find_or_create_by(name: "Tenderheart Activities", slot: SlotB, level: Tenderheart)
-Session.find_or_create_by(name: "Tenderheart Activities", slot: SlotC, level: Tenderheart)
-Session.find_or_create_by(name: "Tenderheart Activities", slot: SlotD, level: Tenderheart)
-
-Session.find_or_create_by(name: "Outdoor Skills", slot: SlotA, level: Explorer )
-Session.find_or_create_by(name: "Outdoor Skills", slot: SlotB, level: PiPa )
-Session.find_or_create_by(name: "Outdoor Skills", slot: SlotC, level: PiPa )
-Session.find_or_create_by(name: "Outdoor Skills", slot: SlotD, level: Explorer )
-
-Session.find_or_create_by(name: "Pen and Paper", slot: SlotA, level: Explorer )
-Session.find_or_create_by(name: "Pen and Paper", slot: SlotB, level: PiPa )
-Session.find_or_create_by(name: "Pen and Paper", slot: SlotC, level: Explorer )
-Session.find_or_create_by(name: "Pen and Paper", slot: SlotD, level: PiPa )
-
-Session.find_or_create_by(name: "Robotics", slot: SlotA, level: PiPa )
-Session.find_or_create_by(name: "Robotics", slot: SlotB, level: Explorer )
-Session.find_or_create_by(name: "Robotics", slot: SlotC, level: Explorer )
-Session.find_or_create_by(name: "Robotics", slot: SlotD, level: PiPa )
-
-Session.find_or_create_by(name: "Our Flag", slot: SlotA, level: Explorer )
-Session.find_or_create_by(name: "Our Flag", slot: SlotB, level: PiPa )
-Session.find_or_create_by(name: "Our Flag", slot: SlotC, level: PiPa )
-Session.find_or_create_by(name: "Our Flag", slot: SlotD, level: Explorer )
-
-Session.find_or_create_by(name: "Canoeing", slot: SlotA, level: PiPa )
-Session.find_or_create_by(name: "Canoeing", slot: SlotB, level: Explorer )
-Session.find_or_create_by(name: "Canoeing", slot: SlotC, level: Explorer )
-Session.find_or_create_by(name: "Canoeing", slot: SlotD, level: PiPa )
-
-Session.find_or_create_by(name: "Fire Building", slot: SlotA, level: PiPa )
-Session.find_or_create_by(name: "Fire Building", slot: SlotB, level: Explorer )
-Session.find_or_create_by(name: "Fire Building", slot: SlotC, level: Explorer )
-Session.find_or_create_by(name: "Fire Building", slot: SlotD, level: PiPa )
-
-Session.find_or_create_by(name: "Survival, Search, and Rescue", slot: SlotA, level: Explorer )
-Session.find_or_create_by(name: "Survival, Search, and Rescue", slot: SlotB, level: PiPa )
-Session.find_or_create_by(name: "Survival, Search, and Rescue", slot: SlotC, level: Explorer )
-Session.find_or_create_by(name: "Survival, Search, and Rescue", slot: SlotD, level: PiPa )
-
-Session.find_or_create_by(name: "Sign Language", slot: SlotA, level: PiPa )
-Session.find_or_create_by(name: "Sign Language", slot: SlotB, level: Explorer )
-Session.find_or_create_by(name: "Sign Language", slot: SlotC, level: PiPa )
-Session.find_or_create_by(name: "Sign Language", slot: SlotD, level: Explorer )
-
-Session.find_or_create_by(name: "Outdoor Cooking", slot: SlotA, level: PiPa )
-Session.find_or_create_by(name: "Outdoor Cooking", slot: SlotB, level: Explorer )
-Session.find_or_create_by(name: "Outdoor Cooking", slot: SlotC, level: PiPa )
-Session.find_or_create_by(name: "Outdoor Cooking", slot: SlotD, level: Explorer )
-
-
-ASessions = Session.where(slot:SlotA)
-BSessions = Session.where(slot:SlotB)
-CSessions = Session.where(slot:SlotC)
-DSessions = Session.where(slot:SlotD)
+# Session.find_or_create_by(name: "Tenderheart Activities", slot: SlotA, level: Tenderheart)
+# Session.find_or_create_by(name: "Tenderheart Activities", slot: SlotB, level: Tenderheart)
+# Session.find_or_create_by(name: "Tenderheart Activities", slot: SlotC, level: Tenderheart)
+# Session.find_or_create_by(name: "Tenderheart Activities", slot: SlotD, level: Tenderheart)
+#
+# Session.find_or_create_by(name: "Outdoor Skills", slot: SlotA, level: Explorer )
+# Session.find_or_create_by(name: "Outdoor Skills", slot: SlotB, level: PiPa )
+# Session.find_or_create_by(name: "Outdoor Skills", slot: SlotC, level: PiPa )
+# Session.find_or_create_by(name: "Outdoor Skills", slot: SlotD, level: Explorer )
+#
+# Session.find_or_create_by(name: "Pen and Paper", slot: SlotA, level: Explorer )
+# Session.find_or_create_by(name: "Pen and Paper", slot: SlotB, level: PiPa )
+# Session.find_or_create_by(name: "Pen and Paper", slot: SlotC, level: Explorer )
+# Session.find_or_create_by(name: "Pen and Paper", slot: SlotD, level: PiPa )
+#
+# Session.find_or_create_by(name: "Robotics", slot: SlotA, level: PiPa )
+# Session.find_or_create_by(name: "Robotics", slot: SlotB, level: Explorer )
+# Session.find_or_create_by(name: "Robotics", slot: SlotC, level: Explorer )
+# Session.find_or_create_by(name: "Robotics", slot: SlotD, level: PiPa )
+#
+# Session.find_or_create_by(name: "Our Flag", slot: SlotA, level: Explorer )
+# Session.find_or_create_by(name: "Our Flag", slot: SlotB, level: PiPa )
+# Session.find_or_create_by(name: "Our Flag", slot: SlotC, level: PiPa )
+# Session.find_or_create_by(name: "Our Flag", slot: SlotD, level: Explorer )
+#
+# Session.find_or_create_by(name: "Canoeing", slot: SlotA, level: PiPa )
+# Session.find_or_create_by(name: "Canoeing", slot: SlotB, level: Explorer )
+# Session.find_or_create_by(name: "Canoeing", slot: SlotC, level: Explorer )
+# Session.find_or_create_by(name: "Canoeing", slot: SlotD, level: PiPa )
+#
+# Session.find_or_create_by(name: "Fire Building", slot: SlotA, level: PiPa )
+# Session.find_or_create_by(name: "Fire Building", slot: SlotB, level: Explorer )
+# Session.find_or_create_by(name: "Fire Building", slot: SlotC, level: Explorer )
+# Session.find_or_create_by(name: "Fire Building", slot: SlotD, level: PiPa )
+#
+# Session.find_or_create_by(name: "Survival, Search, and Rescue", slot: SlotA, level: Explorer )
+# Session.find_or_create_by(name: "Survival, Search, and Rescue", slot: SlotB, level: PiPa )
+# Session.find_or_create_by(name: "Survival, Search, and Rescue", slot: SlotC, level: Explorer )
+# Session.find_or_create_by(name: "Survival, Search, and Rescue", slot: SlotD, level: PiPa )
+#
+# Session.find_or_create_by(name: "Sign Language", slot: SlotA, level: PiPa )
+# Session.find_or_create_by(name: "Sign Language", slot: SlotB, level: Explorer )
+# Session.find_or_create_by(name: "Sign Language", slot: SlotC, level: PiPa )
+# Session.find_or_create_by(name: "Sign Language", slot: SlotD, level: Explorer )
+#
+# Session.find_or_create_by(name: "Outdoor Cooking", slot: SlotA, level: PiPa )
+# Session.find_or_create_by(name: "Outdoor Cooking", slot: SlotB, level: Explorer )
+# Session.find_or_create_by(name: "Outdoor Cooking", slot: SlotC, level: PiPa )
+# Session.find_or_create_by(name: "Outdoor Cooking", slot: SlotD, level: Explorer )
+#
+#
+# ASessions = Session.where(slot:SlotA)
+# BSessions = Session.where(slot:SlotB)
+# CSessions = Session.where(slot:SlotC)
+# DSessions = Session.where(slot:SlotD)
 
 Tshirt.find_or_create_by(name: "YS")
 Tshirt.find_or_create_by(name: "YM")
@@ -97,4 +97,4 @@ AdultLarge = Tshirt.where(name:"AXL").first
 AdultDoubleLarge = Tshirt.where(name:"A2XL").first
 GirlMedium = Tshirt.where(name:"YM").first
 
-SomeParent = User.last
+#SomeParent = User.last
