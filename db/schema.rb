@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223015022) do
+ActiveRecord::Schema.define(version: 20161231042121) do
 
-  create_table "adults", force: true do |t|
+  create_table "adults", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "address"
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20160223015022) do
     t.string   "troopcontact_email"
   end
 
-  create_table "adults_sessions", id: false, force: true do |t|
+  create_table "adults_sessions", id: false, force: :cascade do |t|
     t.integer "adult_id",   null: false
     t.integer "session_id", null: false
   end
 
-  create_table "girls", force: true do |t|
+  create_table "girls", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "dob"
@@ -53,50 +53,44 @@ ActiveRecord::Schema.define(version: 20160223015022) do
     t.string   "othercell"
     t.string   "troopnumber"
     t.integer  "tshirt_id"
-    t.string   "cooking_session"
-    t.boolean  "high_ropes"
-    t.boolean  "horseback",       default: false
+    t.boolean  "horseback",   default: false
+    t.boolean  "kayaking",    default: false
   end
 
-  create_table "girls_sessions", id: false, force: true do |t|
+  create_table "girls_sessions", id: false, force: :cascade do |t|
     t.integer "girl_id",    null: false
     t.integer "session_id", null: false
   end
 
-  create_table "levels", force: true do |t|
+  create_table "levels", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "restrictions", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "sessions", force: true do |t|
+  create_table "sessions", force: :cascade do |t|
     t.string   "name"
     t.integer  "slot_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "level_id"
     t.integer  "capacity",   default: 20
+    t.string   "disclaimer"
   end
 
-  create_table "slots", force: true do |t|
+  create_table "slots", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tshirts", force: true do |t|
+  create_table "tshirts", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
