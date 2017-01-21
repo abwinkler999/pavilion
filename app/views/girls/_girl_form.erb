@@ -127,11 +127,6 @@ function validateCheckbox()
 						All Tenderhearts will follow a pre-set camp schedule.
 				</p>
 				<% end %>
-
-				<strong>
-					<%= g.label :high_ropes, "I acknowledge that I am signing up to pay camp registration for this girl in full, and that no refunds can be given for camp registration:" %>
-					<%= g.check_box :high_ropes %><br>
-				</strong>
 			</div>
 			<p>
 				<%= hidden_field_tag "level", @girl.level.id %>
