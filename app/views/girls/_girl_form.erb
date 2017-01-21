@@ -94,8 +94,10 @@ function validateCheckbox()
 			<%= g.text_field :dietary %><br>
 			<%= g.label :medications, "Will girl be checking in medications with nurse on arrival?" %>
 			<%= g.check_box :medications %><br>
-			<%= g.label :horseback, "Will this girl be participating in horseback riding (additional $35.00 fee will apply)?" %>
+			<%= g.label :horseback, "Will this Explorer or Pioneer/Patriot be participating in Horse Experience (additional $20.00 fee will apply)?" %>
 			<%= g.check_box :horseback %><br>
+			<%= g.label :kayaking, "Will this Pioneer/Patriot be participating in kayaking (additional $20.00 fee will apply)?" %>
+			<%= g.check_box :kayaking %><br>
 			<%= g.label :parentcell, "Parent's Phone Number" %><br />
 			<%= g.text_field :parentcell, placeholder: "(740) 555-5555" %><br>
 			<%= g.label :othercell, "Alternate Phone Number" %><br />
@@ -117,7 +119,8 @@ function validateCheckbox()
 					<%= select_tag(:session_C_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "C"), :id, :name)) %><br/>
 					<%= g.label :session_D_id, "Session D:" %>
 					<%= select_tag(:session_D_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "D"), :id, :name)) %><br/>
-					<p><h5><em>Please note that any girl signing up for Canoeing <strong>must</strong> be able to demonstrate swimming proficiency.</em></h5></p>
+					<p><h5><em>Please note that any girl signing up for Canoeing <strong>must</strong> be able to pass the camp's swim test.</em></h5></p>
+					<p><h5><em>Please note that any girl signing up for Outdoor Cooking <strong>must</strong> have her Fire Safety and Building badge, or take it at camp.</em></h5></p>
 				</p>
 				<% else %>
 				<p class="disclaimer" id="tenderheart_disclaimer">

@@ -51,7 +51,8 @@
 			<%= "C: "%><strong><%= what_is_in_slot("C", x) %></strong><br>
 			<%= "D: "%><strong><%= what_is_in_slot("D", x) %></strong><br>
 		<% end %>
-		<em><%= x.horseback? ? "and Horseback Riding" : "" %></em>
+		<em><%= x.horseback? ? "and Horse Experience (additional $20 fee)" : "" %></em>
+		<em><%= x.horseback? ? "and Kayaking (additional $20 fee)" : "" %></em>
 	</td>
 	<% if !admin_display %>
 	<td>
