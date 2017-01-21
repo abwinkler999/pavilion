@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161231042121) do
+ActiveRecord::Schema.define(version: 20170121230955) do
 
   create_table "adults", force: :cascade do |t|
     t.string   "first_name"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20161231042121) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "halfweek",           default: false
     t.integer  "tshirt_id"
     t.string   "troopnumber"
     t.string   "troopcontact"

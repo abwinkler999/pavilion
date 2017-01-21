@@ -9,7 +9,6 @@
 	<th>CPR</th>
 	<th>First Aid</th>
 	<th>T-Shirt Size</th>
-	<th>Half Week?</th>
 	<th>Helping With</th>
 </tr>
 <% Adult.all.order(:last_name).each { |x| %>
@@ -40,9 +39,6 @@
 	</td>
 	<td>
 		<%= "#{x.tshirt.nil? ? '?' : x.tshirt.name}"%>
-	</td>
-	<td>
-		<%= "#{x.halfweek ? "Yes" : "No"}" %>
 	</td>
 	<td>
 		<%= "#{x.sessions.first.name}" %>
