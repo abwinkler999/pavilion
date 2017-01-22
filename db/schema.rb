@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121230955) do
+ActiveRecord::Schema.define(version: 20170122221825) do
 
   create_table "adults", force: :cascade do |t|
     t.string   "first_name"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170121230955) do
     t.integer  "tshirt_id"
     t.boolean  "horseback",   default: false
     t.boolean  "kayaking",    default: false
+    t.boolean  "release"
   end
 
   create_table "girls_sessions", id: false, force: :cascade do |t|

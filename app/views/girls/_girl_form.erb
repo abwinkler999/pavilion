@@ -84,6 +84,8 @@ $('document').ready(function(){
 						All Tenderhearts will follow a pre-set camp schedule.
 				</p>
 				<% end %>
+				<%= g.label :release, "I consent to the use of my child's photograph for future camp promotional materials." %>
+				<%= g.check_box :release %><br>
 			</div>
 			<p>
 				<%= hidden_field_tag "level", @girl.level.id %>

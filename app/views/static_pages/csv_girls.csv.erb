@@ -1,10 +1,10 @@
 <% headers = ['Last Name', 'First Name', 'DOB', 'Level', 'Troop', 'Dietary Requirements',
-	'Bringing Medications', 'Grade Fall 2015', 'Parent Cell', 'Other Cell', 'T-Shirt', 'Horse Experience', 'Kayaking',
+	'Bringing Medications', 'Grade Fall 2015', 'Parent Cell', 'Other Cell', 'T-Shirt', 'Horse Experience', 'Kayaking', 'Photo OK',
 	'Session A', 'Session B', 'Session C', 'Session D'] %>
 <%= CSV.generate_line headers %>
 <% @girls.each do |girl| %>
 <%= CSV.generate_line([girl.last_name, girl.first_name, format_for_csv(girl.dob), girl.level.name, format_for_csv(girl.troopnumber.upcase), format_for_csv(girl.dietary),
 	yes_or_no(girl.medications), format_for_csv(girl.fallgrade), format_for_csv(girl.parentcell),
-	 format_for_csv(girl.othercell), girl.tshirt.name, yes_or_no(girl.horseback), yes_or_no(girl.kayaking), session_names_for_particular_girl(girl)].flatten,
+	 format_for_csv(girl.othercell), girl.tshirt.name, yes_or_no(girl.horseback), yes_or_no(girl.kayaking), yes_or_no(girl.release), session_names_for_particular_girl(girl)].flatten,
 	encoding:"utf-8") %>
 <% end %>
