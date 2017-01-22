@@ -16,6 +16,7 @@ class GirlsController < ApplicationController
 			@girl.sessions << Session.find_by(id:params[:session_D_id])
 		end
 
+		@girl.troopnumber.upcase!
     if @girl.save
       redirect_to :root
     else

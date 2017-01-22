@@ -7,6 +7,7 @@ class AdultsController < ApplicationController
 		@adult = Adult.new(adult_params)
 		@adult.user = current_user
 		@adult.sessions << Session.find_by(id:params[:session_A_id])
+		@adult.troopnumber.upcase!
 	    if @adult.save
 	      redirect_to :root
 	    else

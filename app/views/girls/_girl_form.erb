@@ -3,7 +3,8 @@
 $('document').ready(function(){
 
 	$("#tenderheart_disclaimer").hide();
-	$("#hiking_note").hide();
+	$("#horseback").hide();
+	$("#kayaking").hide();
 
 	//i = $("#girl_level_id option:selected").text();
 	i = <% @girl.level.name %>
@@ -11,71 +12,19 @@ $('document').ready(function(){
 	if (i == "Tenderheart"){
 		$("#session-choosing").hide();
 		$("#tenderheart_disclaimer").show();
+		console.log("displaying Tenderheart disclaimer");
 	}
 
-	i = $("#session_B_id option:selected").text();
-	if (i == "Outdoor Skills/Backpacking"){
-		$("#hiking_note").show();
-		$('#session_C_id').attr('disabled', 'disabled');
+	if (i == "Explorer"){
+		$("#horseback").show();
 	}
 
-	$("#girl_level_id").change(function(){
-		i = $("#girl_level_id option:selected").text();
-		if (i != "Tenderheart"){
-			$("#tenderheart_disclaimer").hide();
-			$("#session-choosing").slideDown();
-		}
-		else{
-			$("#tenderheart_disclaimer").show();
-			$("#session-choosing").slideUp();
-		}
-	});
-
-	$("#session_B_id").change(function(){
-		console.log("session B was selected");
-		i = $("#session_B_id option:selected").text();
-		console.log("selected:" + i);
-		if (i == "Outdoor Skills/Backpacking"){
-			console.log("triggered");
-			j = $("#session_C_id option:selected").val();
-			console.log("C was: " + j);
-			$("#hiking_note").show();
-			$("#session_C_id").val("9"); // Session C Outdoor Backpacking = 9
-			$('#session_C_id').attr('disabled', 'disabled');
-		}
-		else{
-
-			i = $("#session_C_id option:selected").text();
-			if (i == "Outdoor Skills/Backpacking"){
-				$("#hiking_note").hide();
-				$("#session_C_id").val("10"); // Session C Bible Basics = 10
-				$('#session_C_id').removeAttr('disabled');
-			}
-		}
-	});
-
-	$("#session_C_id").change(function(){
-		console.log("session B was selected");
-		i = $("#session_C_id option:selected").text();
-		console.log("selected:" + i);
-		if (i == "Outdoor Skills/Backpacking"){
-			console.log("triggered");
-			j = $("#session_B_id option:selected").val();
-			console.log("B was: " + j);
-			$("#hiking_note").show();
-			$("#session_B_id").val("4"); // Session B Outdoor Backpacking = 4
-			$('#session_C_id').attr('disabled', 'disabled');
-		}
-	});
+	if (i == "Pioneer/Patriot"){
+		$("#horseback").show();
+		$("#kayaking").show();
+	}
 });
 
-function validateCheckbox()
-{
-    if( $('#girl_high_ropes').is(':checked') == false){
-      alert("You must acknowledge that you are signing up to pay camp registration for this girl in full, and that no refunds can be given for camp registration.");
-			return false;
-    }
-}
 </script>
 <div class="row">
 	<div class="col-md-7 col-md-offset-1">
@@ -94,10 +43,15 @@ function validateCheckbox()
 			<%= g.text_field :dietary %><br>
 			<%= g.label :medications, "Will girl be checking in medications with nurse on arrival?" %>
 			<%= g.check_box :medications %><br>
-			<%= g.label :horseback, "Will this Explorer or Pioneer/Patriot be participating in Horse Experience (additional $20.00 fee will apply)?" %>
-			<%= g.check_box :horseback %><br>
-			<%= g.label :kayaking, "Will this Pioneer/Patriot be participating in kayaking (additional $20.00 fee will apply)?" %>
-			<%= g.check_box :kayaking %><br>
+			<p class="extra_feature" id="horseback">
+				<%= g.label :horseback, "Will this Explorer or Pioneer/Patriot be participating in Horse Experience (additional $20.00 fee will apply)?" %>
+				<%= g.check_box :horseback %><br>
+			</p>
+			<p class="extra_feature" id="kayaking">
+				<%= g.label :kayaking, "Will this Pioneer/Patriot be participating in kayaking (additional $20.00 fee will apply)?" %>
+				<%= g.check_box :kayaking %><br>
+				<p><h5><em>Please note that any girl participating in Kayaking <strong>must</strong> already have the Canoeing badge.</em></h5></p>
+			</p>
 			<%= g.label :parentcell, "Parent's Phone Number" %><br />
 			<%= g.text_field :parentcell, placeholder: "(740) 555-5555" %><br>
 			<%= g.label :othercell, "Alternate Phone Number" %><br />
@@ -130,7 +84,7 @@ function validateCheckbox()
 			</div>
 			<p>
 				<%= hidden_field_tag "level", @girl.level.id %>
-				<%= g.submit "Save Registration", onclick: "validateCheckbox();", class: "btn btn-success", params: {zippy: "Pinhead"} %>
+				<%= g.submit "Save Registration", class: "btn btn-success", params: {zippy: "Pinhead"} %>
 				<%= link_to "Cancel", root_path, class: "btn btn-warning" %>
 			</p>
 		<% end %>
