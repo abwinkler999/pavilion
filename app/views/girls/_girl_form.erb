@@ -1,13 +1,13 @@
 <script type="text/javascript">
 
 $('document').ready(function(){
+	var i = $('#levelname').text().trim();
 
 	$("#tenderheart_disclaimer").hide();
 	$("#horseback").hide();
 	$("#kayaking").hide();
 
 	//i = $("#girl_level_id option:selected").text();
-	i = <% @girl.level.name %>
 
 	if (i == "Tenderheart"){
 		$("#session-choosing").hide();
@@ -28,6 +28,9 @@ $('document').ready(function(){
 </script>
 <div class="row">
 	<div class="col-md-7 col-md-offset-1">
+		<span id="levelname" style="display:none">
+			<%= @girl.level.name %>
+		</span>
 		<%= form_for @girl do |g| %>
 			<%= g.label :first_name %>:
 			<%= g.text_field :first_name, placeholder: "Jane" %>
@@ -50,7 +53,7 @@ $('document').ready(function(){
 			<p class="extra_feature" id="kayaking">
 				<%= g.label :kayaking, "Will this Pioneer/Patriot be participating in kayaking (additional $20.00 fee will apply)?" %>
 				<%= g.check_box :kayaking %><br>
-				<p><h5><em>Please note that any girl participating in Kayaking <strong>must</strong> already have the Canoeing badge.</em></h5></p>
+				<em>Please note that any girl participating in Kayaking <strong>must</strong> already have the Canoeing badge.</em>
 			</p>
 			<%= g.label :parentcell, "Parent's Phone Number" %><br />
 			<%= g.text_field :parentcell, placeholder: "(740) 555-5555" %><br>
