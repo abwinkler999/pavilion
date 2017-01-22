@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'static_pages#home'
+  root 'static_pages#splash'
+  #root 'static_pages#home'
   get 'admin', to:'static_pages#admin', as: :admin
+  get 'teacher', to:'static_pages#teacher', as: :teacher
   get 'csv_girls', to:'static_pages#csv_girls', as: :csv_girls
   get 'csv_adults', to:'static_pages#csv_adults', as: :csv_adults
   get 'csv_sessions', to:'static_pages#csv_sessions', as: :csv_sessions
   #get 'static_pages/csv'
-  get 'static_pages/home'
-  get 'special', to:'static_pages#special', as: :special
+  get 'home', to:'static_pages#home', as: :home
+  #get 'static_pages/home'
+  #get 'special', to:'static_pages#special', as: :special
   #get 'static_pages/admin'
 
   get '404', :to => 'static_pages#home'

@@ -3,7 +3,14 @@ class StaticPagesController < ApplicationController
   def home
   end
 
-  def special
+  def splash
+  end
+
+  def teacher
+    if params[:q] != "yourock123"
+      redirect_to :root, alert: "Sorry, teacher password was not correct." and return
+    end
+    redirect_to :home
   end
 
   def admin
