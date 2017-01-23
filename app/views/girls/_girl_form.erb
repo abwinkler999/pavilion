@@ -90,7 +90,7 @@ $('document').ready(function(){
 			<p>
 				<%= hidden_field_tag "level", @girl.level.id %>
 				<%= g.submit "Save Registration", class: "btn btn-success", params: {zippy: "Pinhead"} %>
-				<%= link_to "Cancel", root_path, class: "btn btn-warning" %>
+				<%= link_to "Cancel", home_path, class: "btn btn-warning" %>
 			</p>
 		<% end %>
 	</div>
