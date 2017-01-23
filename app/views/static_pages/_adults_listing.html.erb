@@ -14,7 +14,7 @@
 <% Adult.all.order(:last_name).each { |x| %>
 <tr>
 	<td>
-		<%= "#{x.first_name} #{x.last_name}.titleize" %>
+		<%= "#{x.first_name} #{x.last_name}".titleize %>
 	</td>
 	<td>
 		<%= "#{x.address}" %>
