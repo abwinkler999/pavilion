@@ -9,7 +9,7 @@
 					<% session.girls.each { |y| %>
 						<tr>
 							<td>
-								<%= "#{y.first_name} #{y.last_name}" %>
+								<%= "#{y.first_name} #{y.last_name}".titleize %>
 							</td>
 							<td>
 								<%= "#{y.level.name}" %>

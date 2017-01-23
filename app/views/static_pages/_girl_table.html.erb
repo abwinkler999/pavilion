@@ -13,7 +13,7 @@
 <% collection_to_display.each { |x| %>
 <tr>
 	<td>
-		<%= "#{x.first_name} #{x.last_name}" %>
+		<%= "#{x.first_name} #{x.last_name}".titleize %>
 	</td>
 	<td>
 		<%= "#{x.level.name}" %>
