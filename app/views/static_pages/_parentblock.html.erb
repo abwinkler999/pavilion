@@ -6,7 +6,7 @@
 		<% the_adult = current_user.adult %>
 		<h3>You are Attending Greater Than Rubies Summer Camp 2016!</h3>
 		<div id="attendeeinfo" class="well">
-			<h3><strong><%=	"#{the_adult.first_name} #{the_adult.last_name}" %></strong></h3>
+			<h3><strong><%=	"#{the_adult.first_name} #{the_adult.last_name}".titleize %></strong></h3>
 			<div class="row">
 				<div class="col-md-6">
 					<strong><%= "Phone:" %></strong>  <%= " #{the_adult.phone}" %><br />

@@ -6,15 +6,15 @@
 			<%= g.label :last_name %>:
 			<%= g.text_field :last_name, placeholder: "Camper" %><br>
 			<%= g.label :address, "Street Address, City, State, ZIP Code", id: "addressfield" %><br />
-			<%= g.text_field :address, placeholder: "111 Eliza Shirley Blvd., Campsville, OH 40001" %><br>
+			<%= g.text_field :address, placeholder: "112 Eliza Shirley Blvd., Campsburgh, OH 40001" %><br>
 			<%= g.label :phone, "Phone Number" %><br />
 			<%= g.text_field :phone, placeholder: "(740) 555-5555" %><br>
 			<%= g.label :troopnumber, "Troop Number" %><br />
 			<%= g.text_field :troopnumber, placeholder: "OH0001" %><br>
 			<%= g.label :troopcontact, "Troop Coordinator's Name:" %><br />
-			<%= g.text_field :troopcontact, size:"60", placeholder: "Betty Coordinator" %><br>
+			<%= g.text_field :troopcontact, size:"60", placeholder: "Carolyn Coordinator" %><br>
 			<%= g.label :troopcontact, "Troop Coordinator's Email:" %><br />
-			<%= g.text_field :troopcontact_email, size:"60", placeholder: "betty_coordinator@gmail.com" %><br />
+			<%= g.text_field :troopcontact_email, size:"60", placeholder: "carolyn_coordinator@gmail.com" %><br />
 			<%= g.label :dietary, "Please list any dietary restrictions or allergies:" %><br />
 			<%= g.text_field :dietary %><br>
 			<%= g.label :cpr, "Do you have a current CPR certification?" %>
@@ -24,8 +24,9 @@
 			<%= g.label :tshirt_id, "T-Shirt Size" %>
 			<%= g.select(:tshirt_id, options_from_collection_for_select(Tshirt.all, :id, :name, @adult.tshirt_id)) %>
 			<p id="help_out_box">
-				<%= g.label :session_A_id, "Every adult is requested to help out with one badge activity.  What will you be able to help with?" %>
+				<%= g.label :session_A_id, "Every adult is requested to help out with one badge activity.  Which badge would you prefer to help with?" %>
 			<%= select_tag(:session_A_id, options_from_collection_for_select(adult_sessions, :id, :name)) %><br/>
+				<em>Please note:  While the camp staff will try to accommodate your choice, please note that you may be asked to assist with a different session if needed.</em>
 			</p>
 			<p>
 				<%= g.submit "Save Registration", class: "btn btn-success" %>

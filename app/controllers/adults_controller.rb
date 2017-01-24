@@ -1,4 +1,7 @@
 class AdultsController < ApplicationController
+
+	include ApplicationHelper
+
 	def new
 		@adult = Adult.new
 	end
@@ -8,6 +11,8 @@ class AdultsController < ApplicationController
 		@adult.user = current_user
 		@adult.sessions << Session.find_by(id:params[:session_A_id])
 		@adult.troopnumber.upcase!
+		@adult.phone = try_to_format_phone(@adult.phone)
+		@adult.troopcontact = @adult.troopcontact.titleize
 	    if @adult.save
 	      redirect_to :root
 	    else

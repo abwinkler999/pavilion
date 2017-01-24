@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20170122221825) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "level_id"
-    t.integer  "capacity",   default: 20
+    t.integer  "capacity",   default: 15
     t.string   "disclaimer"
   end
 

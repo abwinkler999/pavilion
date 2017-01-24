@@ -1,4 +1,7 @@
 class GirlsController < ApplicationController
+
+	include ApplicationHelper
+
 	def new
 		@girl = Girl.new
 		@girl.level = Level.where(name:params[:level]).first
@@ -17,6 +20,8 @@ class GirlsController < ApplicationController
 		end
 
 		@girl.troopnumber.upcase!
+		@girl.parentcell = try_to_format_phone(@girl.parentcell)
+		@girl.othercell = try_to_format_phone(@girl.othercell)
     if @girl.save
       redirect_to :root
     else
