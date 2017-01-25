@@ -58,6 +58,42 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def csv_medications
+  	bounce_nonadmin
+  	@girls = Girl.where(medications:true).all
+  	respond_to do |format|
+  		format.html
+  		format.csv {
+  			headers['Content-Disposition'] = 'attachment; filename=\"adult-registrations-list.csv\"'
+  			headers['Content-Type'] ||= 'text/csv'
+  		}
+    end
+  end
+
+  def csv_dietary
+    bounce_nonadmin
+    @girls = Girl.where("length(dietary) > 0").all
+    respond_to do |format|
+      format.html
+      format.csv {
+        headers['Content-Disposition'] = 'attachment; filename=\"adult-registrations-list.csv\"'
+        headers['Content-Type'] ||= 'text/csv'
+      }
+    end
+  end
+
+  def csv_gluten
+    bounce_nonadmin
+    @girls = Girl.where(no_gluten:true).all
+    respond_to do |format|
+      format.html
+      format.csv {
+        headers['Content-Disposition'] = 'attachment; filename=\"adult-registrations-list.csv\"'
+        headers['Content-Type'] ||= 'text/csv'
+      }
+    end
+  end
+
 private
 
   def bounce_nonadmin

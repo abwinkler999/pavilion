@@ -1,0 +1,8 @@
+<% headers = ['Last Name', 'First Name', 'Troop', 'Bringing Medications', 'Parent Cell', 'Other Cell', 'Parent Email'] %>
+<%= CSV.generate_line headers %>
+<% @girls.each do |girl| %>
+<%= CSV.generate_line([girl.last_name, girl.first_name, format_for_csv(girl.troopnumber.upcase),
+	yes_or_no(girl.medications), format_for_csv(girl.parentcell),
+	 format_for_csv(girl.othercell), girl.user.email].flatten,
+	encoding:"utf-8") %>
+<% end %>

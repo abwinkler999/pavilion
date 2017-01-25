@@ -1,8 +1,26 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-2 buttons_row">
-		<%= link_to 'Session Sign-ups', csv_sessions_path(format: :csv), class: "btn btn-info" %>
-		<%= link_to 'Download List of Girls', csv_girls_path(format: :csv), class: "btn btn-info" %>
-		<%= link_to 'Download List of Adults', csv_adults_path(format: :csv), class: "btn btn-info" %>
+		<h3>Downloadable Reports</h3>
+		<ul>
+			<li>
+				<%= link_to 'Session Sign-ups', csv_sessions_path(format: :csv) %>
+			</li>
+			<li>
+				<%= link_to 'List of Girls', csv_girls_path(format: :csv)%>
+			</li>
+			<li>
+				<%= link_to 'List of Adults', csv_adults_path(format: :csv)%>
+			</li>
+			<li>
+				<%= link_to 'List of Girls with Medications', csv_medications_path(format: :csv)%>
+			</li>
+			<li>
+				<%= link_to 'List of Girls with Dietary Restrictions', csv_dietary_path(format: :csv)%>
+			</li>
+			<li>
+				<%= link_to 'List of Girls with Gluten Sensitivity', csv_gluten_path(format: :csv)%>
+			</li>
+		</ul>
 		<%= link_to 'Back to Main Page', home_path, class: "btn btn-primary" %>
 	</div>
 </div>

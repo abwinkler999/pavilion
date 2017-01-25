@@ -44,6 +44,8 @@ $('document').ready(function(){
 			<%= g.text_field :fallgrade, placeholder: "K" %><br>
 			<%= g.label :dietary, "Please list any dietary restrictions or allergies:" %><br />
 			<%= g.text_field :dietary %><br>
+			<%= g.label :no_gluten, "Does this girl have gluten-sensitivity?" %>
+			<%= g.check_box :no_gluten %><br>
 			<%= g.label :medications, "Will girl be checking in medications with nurse on arrival?" %>
 			<%= g.check_box :medications %><br>
 			<p class="extra_feature" id="horseback">

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'csv_girls', to:'static_pages#csv_girls', as: :csv_girls
   get 'csv_adults', to:'static_pages#csv_adults', as: :csv_adults
   get 'csv_sessions', to:'static_pages#csv_sessions', as: :csv_sessions
+  get 'csv_medications', to:'static_pages#csv_medications', as: :csv_medications
+  get 'csv_dietary', to:'static_pages#csv_dietary', as: :csv_dietary
+  get 'csv_gluten', to:'static_pages#csv_gluten', as: :csv_gluten
   #get 'static_pages/csv'
   get 'home', to:'static_pages#home', as: :home
   #get 'static_pages/home'
