@@ -1,9 +1,9 @@
 <% @admin_display = false %>
 <div id="girls_list_block">
-<h3>Your Girls Registered For Greater Than Rubies Summer Camp 2016</h3>
+<h3>Your Girls Registered For Greater Than Rubies Summer Camp 2017</h3>
 <%= render "girl_table", admin_display: false %>
 <% if at_tenderheart_limit %>
-  <h5>(Sorry, Greater Than Rubies Summer Camp 2016 has hit the registration limit for Tenderhearts.  If you wish, please email <a href="mailto:ahgcampgtr@gmail.com">the Camp Director</a> to be placed on the waiting list.)</h5>
+  <h5>(Sorry, Greater Than Rubies Summer Camp 2017 has hit the registration limit for Tenderhearts.  If you wish, please email <a href="mailto:ahgcampgtr@gmail.com">the Camp Director</a> to be placed on the waiting list.)</h5>
 <% else %>
   <%= link_to "Register A Tenderheart", new_girl_path(level: "Tenderheart"), class: "btn btn-success" %>
 <% end %>

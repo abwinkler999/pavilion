@@ -47,14 +47,18 @@ $('document').ready(function(){
 			<%= g.label :medications, "Will girl be checking in medications with nurse on arrival?" %>
 			<%= g.check_box :medications %><br>
 			<p class="extra_feature" id="horseback">
-				<%= g.label :horseback, "Will this Explorer or Pioneer/Patriot be participating in Horse Experience (additional $20.00 fee will apply)?" %>
-				<%= g.check_box :horseback %><br>
-				<em>Please note that Horse Experience does not include a trail ride.</em>
+				<% if !at_horseback_limit %>
+					<%= g.label :horseback, "Will this Explorer or Pioneer/Patriot be participating in Horse Experience (additional $20.00 fee will apply)?" %>
+					<%= g.check_box :horseback %><br>
+					<em>Please note that Horse Experience does not include a trail ride.</em>
+				<% end %>
 			</p>
 			<p class="extra_feature" id="kayaking">
-				<%= g.label :kayaking, "Will this Pioneer/Patriot be participating in kayaking (additional $20.00 fee will apply)?" %>
-				<%= g.check_box :kayaking %><br>
-				<em>Please note that any girl participating in Kayaking <strong>must</strong> already have earned the Canoeing badge at the Pi/Pa level.</em>
+				<% if !at_kayak_limit %>
+					<%= g.label :kayaking, "Will this Pioneer/Patriot be participating in kayaking (additional $20.00 fee will apply)?" %>
+					<%= g.check_box :kayaking %><br>
+					<em>Please note that any girl participating in Kayaking <strong>must</strong> already have earned the Canoeing badge at the Pi/Pa level.</em>
+				<% end %>
 			</p>
 			<%= g.label :parentcell, "Parent's Phone Number" %><br />
 			<%= g.text_field :parentcell, placeholder: "(740) 555-5555" %><br>

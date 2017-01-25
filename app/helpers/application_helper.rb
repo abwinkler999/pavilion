@@ -11,6 +11,14 @@ module ApplicationHelper
 		return Girl.where(level:tenderheart).count >= 20
 	end
 
+	def at_kayak_limit
+		return Girl.where(kayaking:true).count >= 24
+	end
+
+	def at_horseback_limit
+		return Girl.where(kayaking:true).count >= 60
+	end
+
 	def try_to_format_phone(phone)
     if phone.length == 10
       return "(#{phone[0..2]}) #{phone[3..5]}-#{phone[6..9]}"
