@@ -1,10 +1,10 @@
 <div class="parentblock">
 	<% unless current_user.adult %>
-		<h3>(You have not registered an adult for Greater Than Rubies Summer Camp 2016.)</h3>
+		<h3>(You have not registered an adult for Greater Than Rubies Summer Camp 2017.)</h3>
 		<%= link_to "Register Adult to Attend", new_adult_path, class: "btn btn-success" %>
 	<% else %>
 		<% the_adult = current_user.adult %>
-		<h3>You are Attending Greater Than Rubies Summer Camp 2016!</h3>
+		<h3>You are Attending Greater Than Rubies Summer Camp 2017!</h3>
 		<div id="attendeeinfo" class="well">
 			<h3><strong><%=	"#{the_adult.first_name} #{the_adult.last_name}".titleize %></strong></h3>
 			<div class="row">
