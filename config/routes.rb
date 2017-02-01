@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'static_pages#splash'
-  #root 'static_pages#home'
+  #root 'static_pages#splash'
+  root 'static_pages#home'
   get 'admin', to:'static_pages#admin', as: :admin
   get 'teacher', to:'static_pages#teacher', as: :teacher
   get 'csv_girls', to:'static_pages#csv_girls', as: :csv_girls
