@@ -11,6 +11,11 @@ module ApplicationHelper
 		return Girl.where(level:tenderheart).count >= 20
 	end
 
+	def at_camp_limit
+		campers = Girl.count
+		return campers >= 100
+	end
+	
 	def at_kayak_limit
 		return Girl.where(kayaking:true).count >= 24
 	end

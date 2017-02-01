@@ -69,6 +69,11 @@ Session.find_or_create_by(name: "Swimming", slot: SlotD, capacity: 12, level: Pi
 Session.find_or_create_by(name: "Zoology", slot: SlotD, level: Explorer)
 Session.find_or_create_by(name: "Daughter of the King", slot: SlotD, level: PiPa)
 
+#User.find_or_create_by(email:"ziggy@aol.com", encrypted_password:"zzzzzz")
+
+99.times do
+  Girl.find_or_create_by(first_name:('a'..'z').to_a.shuffle[0,8].join, last_name:('a'..'z').to_a.shuffle[0,8].join, troopnumber:"OH2222", level:Level.second, user:User.where(email:"ziggy@aol.com").first, dob:"1-1-99", fallgrade:"7", tshirt:Tshirt.second)
+end
 #
 #
 # ASessions = Session.where(slot:SlotA)
