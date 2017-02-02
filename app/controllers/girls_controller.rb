@@ -3,11 +3,14 @@ class GirlsController < ApplicationController
 	include ApplicationHelper
 
 	def new
+		redirect_to :root and return
 		@girl = Girl.new
 		@girl.level = Level.where(name:params[:level]).first
 	end
 
 	def create
+		# force not being able to register new girls
+		redirect_to :root and return
 		@girl = Girl.new(girl_params)
 		@girl.user = current_user
 		@girl.level = Level.where(id: params[:level].to_i).first
