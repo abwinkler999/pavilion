@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'csv_medications', to:'static_pages#csv_medications', as: :csv_medications
   get 'csv_dietary', to:'static_pages#csv_dietary', as: :csv_dietary
   get 'csv_gluten', to:'static_pages#csv_gluten', as: :csv_gluten
+  get 'csv_release', to:'static_pages#csv_release', as: :csv_release
+  get 'csv_units', to:'static_pages#csv_units', as: :csv_units
+  get 'csv_troops', to:'static_pages#csv_troops', as: :csv_troops
   #get 'static_pages/csv'
   get 'home', to:'static_pages#home', as: :home
   #get 'static_pages/home'

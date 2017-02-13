@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-5">
+    <ul>
+      <li>
+        <%= link_to 'Session Sign-ups', csv_sessions_path(format: :csv) %>
+      </li>
+      <li>
+        <%= link_to 'List of Girls', csv_girls_path(format: :csv)%>
+      </li>
+      <li>
+        <%= link_to 'List of Girls by Units', csv_units_path(format: :csv)%>
+      </li>
+      <li>
+        <%= link_to 'List of Girls by Troops', csv_troops_path(format: :csv)%>
+      </li>
+      <li>
+        <%= link_to 'List of Adults', csv_adults_path(format: :csv)%>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-5">
+    <ul>
+      <li>
+        <%= link_to 'List of Girls with Medications', csv_medications_path(format: :csv)%>
+      </li>
+      <li>
+        <%= link_to 'List of Girls with Dietary Restrictions', csv_dietary_path(format: :csv)%>
+      </li>
+      <li>
+        <%= link_to 'List of Girls with Gluten Sensitivity', csv_gluten_path(format: :csv)%>
+      </li>
+      <li>
+        <%= link_to 'List of Girls Refusing Media Permission', csv_release_path(format: :csv)%>
+      </li>
+    </ul>
+  </div>
+</div>

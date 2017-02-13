@@ -24,11 +24,11 @@ class StaticPagesController < ApplicationController
 
   def csv_girls
   	bounce_nonadmin
-  	@girls = Girl.all
+  	@girls = Girl.all.order(:last_name)
   	respond_to do |format|
   		format.html
   		format.csv {
-  			headers['Content-Disposition'] = 'attachment; filename=\"girl-registrations-list.csv\"'
+  			headers['Content-Disposition'] = 'attachment; filename=girl-registrations-list.csv'
   			headers['Content-Type'] ||= 'text/csv'
   		}
   	end
@@ -36,11 +36,11 @@ class StaticPagesController < ApplicationController
 
   def csv_adults
   	bounce_nonadmin
-  	@adults = Adult.all
+  	@adults = Adult.all.order(:last_name)
   	respond_to do |format|
   		format.html
   		format.csv {
-  			headers['Content-Disposition'] = 'attachment; filename=\"adult-registrations-list.csv\"'
+  			headers['Content-Disposition'] = 'attachment; filename=adult-registrations-list.csv'
   			headers['Content-Type'] ||= 'text/csv'
   		}
     end
@@ -48,11 +48,11 @@ class StaticPagesController < ApplicationController
 
   def csv_sessions
   	bounce_nonadmin
-  	@girls = Girl.all
+  	@girls = Girl.all.order(:last_name)
   	respond_to do |format|
   		format.html
   		format.csv {
-  			headers['Content-Disposition'] = 'attachment; filename=\"adult-registrations-list.csv\"'
+  			headers['Content-Disposition'] = 'attachment; filename=sessions-list.csv'
   			headers['Content-Type'] ||= 'text/csv'
   		}
     end
@@ -60,11 +60,11 @@ class StaticPagesController < ApplicationController
 
   def csv_medications
   	bounce_nonadmin
-  	@girls = Girl.where(medications:true).all
+  	@girls = Girl.where(medications:true).all.order(:last_name)
   	respond_to do |format|
   		format.html
   		format.csv {
-  			headers['Content-Disposition'] = 'attachment; filename=\"adult-registrations-list.csv\"'
+  			headers['Content-Disposition'] = 'attachment; filename=medications-list.csv'
   			headers['Content-Type'] ||= 'text/csv'
   		}
     end
@@ -72,11 +72,11 @@ class StaticPagesController < ApplicationController
 
   def csv_dietary
     bounce_nonadmin
-    @girls = Girl.where("length(dietary) > 0").all
+    @girls = Girl.where("length(dietary) > 0").all.order(:last_name)
     respond_to do |format|
       format.html
       format.csv {
-        headers['Content-Disposition'] = 'attachment; filename=\"adult-registrations-list.csv\"'
+        headers['Content-Disposition'] = 'attachment; filename=dietary-list.csv'
         headers['Content-Type'] ||= 'text/csv'
       }
     end
@@ -84,11 +84,47 @@ class StaticPagesController < ApplicationController
 
   def csv_gluten
     bounce_nonadmin
-    @girls = Girl.where(no_gluten:true).all
+    @girls = Girl.where(no_gluten:true).all.order(:last_name)
     respond_to do |format|
       format.html
       format.csv {
-        headers['Content-Disposition'] = 'attachment; filename=\"adult-registrations-list.csv\"'
+        headers['Content-Disposition'] = 'attachment; filename=gluten-list.csv'
+        headers['Content-Type'] ||= 'text/csv'
+      }
+    end
+  end
+
+  def csv_release
+    bounce_nonadmin
+    @girls = Girl.where(release:false).all.order(:last_name)
+    respond_to do |format|
+      format.html
+      format.csv {
+        headers['Content-Disposition'] = 'attachment; filename=media-release-list.csv'
+        headers['Content-Type'] ||= 'text/csv'
+      }
+    end
+  end
+
+  def csv_units
+    bounce_nonadmin
+    @girls = Girl.all.order(:level_id, :last_name)
+    respond_to do |format|
+      format.html
+      format.csv {
+        headers['Content-Disposition'] = 'attachment; filename=unit-list.csv'
+        headers['Content-Type'] ||= 'text/csv'
+      }
+    end
+  end
+
+  def csv_troops
+    bounce_nonadmin
+    @girls = Girl.all.order(:troopnumber, :last_name)
+    respond_to do |format|
+      format.html
+      format.csv {
+        headers['Content-Disposition'] = 'attachment; filename=troop-list.csv'
         headers['Content-Type'] ||= 'text/csv'
       }
     end
