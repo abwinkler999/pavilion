@@ -56,7 +56,11 @@ class GirlsController < ApplicationController
 		@girl = Girl.find(params[:id])
 		verify_owner(@girl)
 		@girl.destroy
-		redirect_to :root
+		if (current_user.is_admin?)
+			redirect_to :admin, notice: "Registration for #{@girl.first_name} #{@girl.last_name} was deleted." and return
+		else
+			redirect_to :root
+		end
 	end
 
 	private

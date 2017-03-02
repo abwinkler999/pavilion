@@ -13,7 +13,7 @@
 <% collection_to_display.each { |x| %>
 <tr>
 	<td>
-		<%= "#{x.first_name} #{x.last_name}".titleize %>
+		<strong><%= "#{x.first_name} #{x.last_name}".titleize %></strong>
 	</td>
 	<td>
 		<%= "#{x.level.name}" %>
@@ -57,10 +57,8 @@
 		<em><%= x.horseback? ? "and Horse Experience (additional $20 fee)" : "" %></em>
 		<em><%= x.kayaking? ? "and Kayaking (additional $20 fee)" : "" %></em>
 	</td>
-	<% if !admin_display %>
 	<td>
 		<h4><%= link_to "Cancel Registration", girl_path(x), method: :delete, data: { confirm: "Are you certain you want to delete this girl?" }, class: "btn btn-danger" %></h4>
-	<% end %>
 	</td>
 </tr>
 <% } %>

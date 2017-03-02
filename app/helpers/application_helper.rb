@@ -1,8 +1,8 @@
 module ApplicationHelper
 
 	def verify_owner(girl)
-		if girl.user != current_user
-		redirect_to :root
+		if (girl.user != current_user) && !(current_user.is_admin?)
+			redirect_to :root
 		end
 	end
 
@@ -15,7 +15,7 @@ module ApplicationHelper
 		campers = Girl.count
 		return campers >= 100
 	end
-	
+
 	def at_kayak_limit
 		return Girl.where(kayaking:true).count >= 24
 	end
