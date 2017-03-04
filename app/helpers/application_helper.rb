@@ -25,6 +25,9 @@ module ApplicationHelper
 	end
 
 	def try_to_format_phone(phone)
+		if phone.nil?
+			return
+		end
     if phone.length == 10
       return "(#{phone[0..2]}) #{phone[3..5]}-#{phone[6..9]}"
     elsif phone.length == 12 && phone[3] == "-" && phone[7] == "-"

@@ -76,13 +76,13 @@ $('document').ready(function(){
 				<p>
 					<h4>Badge Sessions</h4>
 					<%= g.label :session_A_id, "Session A:" %>
-					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "A"), :id, :name)) %><br/>
+					<%= select_tag(:session_A_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "A"), :id, :name, session_if_one_exists(@girl, "A"))) %><br/>
 					<%= g.label :session_B_id, "Session B:" %>
-					<%= select_tag(:session_B_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "B"), :id, :name)) %><br/>
+					<%= select_tag(:session_B_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "B"), :id, :name, session_if_one_exists(@girl, "B"))) %><br/>
 					<%= g.label :session_C_id, "Session C:" %>
-					<%= select_tag(:session_C_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "C"), :id, :name)) %><br/>
+					<%= select_tag(:session_C_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "C"), :id, :name, session_if_one_exists(@girl, "C"))) %><br/>
 					<%= g.label :session_D_id, "Session D:" %>
-					<%= select_tag(:session_D_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "D"), :id, :name)) %><br/>
+					<%= select_tag(:session_D_id, options_from_collection_for_select(appropriate_sessions_for_level(@girl.level, "D"), :id, :name, session_if_one_exists(@girl, "D"))) %><br/>
 					<p><h5><em>Please note that any girl signing up for Canoeing <strong>must</strong> be able to pass the camp's swim test.</em></h5></p>
 					<p><h5><em>Please note that any girl signing up for Outdoor Cooking <strong>must</strong> have her Fire Safety and Building badge, or take it at camp.</em></h5></p>
 				</p>

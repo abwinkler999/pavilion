@@ -3,14 +3,19 @@ class GirlsController < ApplicationController
 	include ApplicationHelper
 
 	def new
-		redirect_to :root and return
+		# force not being able to register new girls
+		unless current_user.is_admin
+			redirect_to :root and return
+		end
 		@girl = Girl.new
 		@girl.level = Level.where(name:params[:level]).first
 	end
 
 	def create
 		# force not being able to register new girls
-		redirect_to :root and return
+		unless current_user.is_admin
+			redirect_to :root and return
+		end
 		@girl = Girl.new(girl_params)
 		@girl.user = current_user
 		@girl.level = Level.where(id: params[:level].to_i).first
@@ -40,15 +45,23 @@ class GirlsController < ApplicationController
 	def update
 		@girl = Girl.find(params[:id])
 		verify_owner(@girl)
-		# copy this code from whatever I do with create, above
-		@girl.session_A = Session.find_by(id:params[:session_A_id])
-		@girl.session_B = Session.find_by(id:params[:session_B_id])
-		@girl.session_C = Session.find_by(id:params[:session_C_id])
-		@girl.session_D = Session.find_by(id:params[:session_D_id])
-	    if @girl.update_attributes(girl_params)
-	      redirect_to :root
-	    else
-	      render 'edit'
+
+		if @girl.level != Level.where(name:"Tenderheart").first
+			@girl.sessions.delete_all
+			@girl.sessions << Session.find_by(id:params[:session_A_id])
+			@girl.sessions << Session.find_by(id:params[:session_B_id])
+			@girl.sessions << Session.find_by(id:params[:session_C_id])
+			@girl.sessions << Session.find_by(id:params[:session_D_id])
+		end
+
+		@girl.troopnumber.upcase!
+		@girl.parentcell = try_to_format_phone(@girl.parentcell)
+		@girl.othercell = try_to_format_phone(@girl.othercell)
+
+    if @girl.update_attributes(girl_params)
+      redirect_to :admin
+    else
+      render 'edit'
 		end
 	end
 

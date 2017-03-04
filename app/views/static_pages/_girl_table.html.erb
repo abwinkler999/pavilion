@@ -59,6 +59,9 @@
 	</td>
 	<td>
 		<h4><%= link_to "Cancel Registration", girl_path(x), method: :delete, data: { confirm: "Are you certain you want to delete this girl?" }, class: "btn btn-danger" %></h4>
+		<% if current_user.is_admin? %>
+			<%= link_to "Edit Registration", edit_girl_path(x), method: :get, class: "btn btn-warning" %>
+		<% end %>
 	</td>
 </tr>
 <% } %>

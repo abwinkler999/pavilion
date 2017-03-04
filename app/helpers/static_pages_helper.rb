@@ -22,6 +22,18 @@ module StaticPagesHelper
 		}
 	end
 
+	def session_if_one_exists(girl, slot)
+		if (girl.nil? || girl.level.name == "Tenderheart")
+			return nil
+		end
+		the_session = girl_session_for_particular_slot(girl,Slot.where(name:slot).first)
+		if the_session.nil?
+			return nil
+		else
+			return the_session.id
+		end
+	end
+
 	def session_names_for_particular_girl(girl)
 		girl.sessions.map {|x| format_for_csv(x.name)}
 	end
