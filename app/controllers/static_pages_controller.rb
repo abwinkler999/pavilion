@@ -130,6 +130,18 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def csv_extras
+    bounce_nonadmin
+    @girls = Girl.where(horseback:true).or(Girl.where(kayaking:true)).all.order(:last_name)
+    respond_to do |format|
+      format.html
+      format.csv {
+        headers['Content-Disposition'] = 'attachment; filename=extras-list.csv'
+        headers['Content-Type'] ||= 'text/csv'
+      }
+    end
+  end
+
 private
 
   def bounce_nonadmin

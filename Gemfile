@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pry'
+gem 'where-or'
 
 group :production do
 	gem 'pg'
